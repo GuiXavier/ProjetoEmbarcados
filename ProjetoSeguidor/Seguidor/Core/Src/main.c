@@ -11,12 +11,17 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+// Enumeration para os estados do nosso teste de motor
+typedef enum {
+    STATE_MOTOR_RUNNING,
+    STATE_MOTOR_STOPPED
+} MotorTestState_t;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define ADC_DMA_BUFFER_LEN 1 // Para o teste mais simples, vamos usar um buffer de tamanho 1
-                             // Você pode aumentar depois, ex: 10, se quiser média ou ver um histórico.
+#define ADC_DMA_BUFFER_LEN 1
+#define MOTOR_TEST_INTERVAL_MS 5000 // Intervalo de 5 segundos
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -25,22 +30,33 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
-DMA_HandleTypeDef hdma_adc1; // Gerado pelo CubeMX
+DMA_HandleTypeDef hdma_adc1;
+TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim16;
 
 /* USER CODE BEGIN PV */
-volatile uint16_t adc_dma_buffer[ADC_DMA_BUFFER_LEN]; // Buffer para o DMA
-// Variáveis para observar no debug (opcional se for olhar o buffer diretamente)
+volatile uint16_t adc_dma_buffer[ADC_DMA_BUFFER_LEN];
 volatile uint32_t adc_value_snapshot;
 volatile float voltage_snapshot;
+
+volatile GPIO_PinState sensor_S1_state;
+volatile GPIO_PinState sensor_S2_state;
+volatile GPIO_PinState sensor_S3_state;
+volatile GPIO_PinState sensor_S4_state;
+volatile GPIO_PinState sensor_S5_state;
+volatile GPIO_PinState sensor_CLP_state;
+volatile GPIO_PinState sensor_NEAR_state;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void); // Gerado pelo CubeMX
+static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_TIM1_Init(void);
+static void MX_TIM16_Init(void);
 /* USER CODE BEGIN PFP */
 /* USER CODE END PFP */
 
@@ -56,64 +72,91 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+  MotorTestState_t motor_state = STATE_MOTOR_STOPPED;
+  uint32_t motor_test_timer = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
-
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
-  /* Configure the system clock */
   SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_ADC1_Init();
-  MX_TIM2_Init(); // MX_TIM2_Init agora deve configurar apenas o TRGO para o ADC
+  MX_TIM2_Init();
+  MX_TIM1_Init();
+  MX_TIM16_Init();
   /* USER CODE BEGIN 2 */
-  // Calibra o ADC
+  // --- INÍCIO DA LEITURA ADC ---
   if (HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED) != HAL_OK)
   {
-    Error_Handler(); // Coloque um breakpoint aqui para ver se a calibração falha
+    Error_Handler();
   }
-
-  // Inicia o Timer 2 em modo base (para o TRGO que dispara o ADC)
   if (HAL_TIM_Base_Start(&htim2) != HAL_OK)
   {
-    Error_Handler(); // Coloque um breakpoint aqui
+    Error_Handler();
   }
-
-  // A LINHA ABAIXO FOI REMOVIDA/COMENTADA (PARA O BUZZER)
-  // if (HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1) != HAL_OK)
-  // {
-  //   Error_Handler();
-  // }
-
-  // Inicia o ADC com DMA. O DMA irá preencher 'adc_dma_buffer' continuamente
-  // se o DMA estiver configurado em modo Circular.
   if (HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_dma_buffer, ADC_DMA_BUFFER_LEN) != HAL_OK)
   {
-    Error_Handler(); // Coloque um breakpoint aqui
+    Error_Handler();
   }
+
+  // --- INÍCIO DO CONTROLE DO MOTOR A ---
+  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  motor_test_timer = HAL_GetTick(); // Inicia nosso timer de software
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    // --- LEITURA CONTÍNUA DOS SENSORES E ADC ---
     adc_value_snapshot = adc_dma_buffer[0];
     voltage_snapshot = (adc_value_snapshot / 4095.0f) * 3.3f;
 
-    HAL_Delay(100);
+    // A leitura dos sensores GPIO acontece a cada iteração do loop
+    sensor_S1_state   = HAL_GPIO_ReadPin(SENSOR_1_GPIO_Port, SENSOR_1_Pin);
+    sensor_S2_state   = HAL_GPIO_ReadPin(SENSOR_2_GPIO_Port, SENSOR_2_Pin);
+    sensor_S3_state   = HAL_GPIO_ReadPin(SENSOR_3_GPIO_Port, SENSOR_3_Pin);
+    sensor_S4_state   = HAL_GPIO_ReadPin(SENSOR_4_GPIO_Port, SENSOR_4_Pin);
+    sensor_S5_state   = HAL_GPIO_ReadPin(SENSOR_5_GPIO_Port, SENSOR_5_Pin);
+    sensor_CLP_state  = HAL_GPIO_ReadPin(SENSOR_6_GPIO_Port, SENSOR_6_Pin);
+    sensor_NEAR_state = HAL_GPIO_ReadPin(SENSOR_7_GPIO_Port, SENSOR_7_Pin);
+
+
+    // --- LÓGICA DE TESTE DO MOTOR A (SEM BLOQUEIO) ---
+    // Verifica se passaram 5 segundos desde a última mudança
+    if (HAL_GetTick() - motor_test_timer >= MOTOR_TEST_INTERVAL_MS)
+    {
+        motor_test_timer = HAL_GetTick(); // Reseta o timer
+
+        if (motor_state == STATE_MOTOR_STOPPED)
+        {
+            // Se estava parado, agora LIGA o motor
+            motor_state = STATE_MOTOR_RUNNING;
+
+            // Define a direção
+            HAL_GPIO_WritePin(MOTOR_A_IN1_GPIO_Port, MOTOR_A_IN1_Pin, GPIO_PIN_SET);
+            HAL_GPIO_WritePin(MOTOR_A_IN2_GPIO_Port, MOTOR_A_IN2_Pin, GPIO_PIN_RESET);
+            // Define a velocidade com PWM
+            __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 500);
+        }
+        else // motor_state == STATE_MOTOR_RUNNING
+        {
+            // Se estava ligado, agora PARA o motor
+            motor_state = STATE_MOTOR_STOPPED;
+
+            // Zera o PWM e freia o motor
+            __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
+            HAL_GPIO_WritePin(MOTOR_A_IN1_GPIO_Port, MOTOR_A_IN1_Pin, GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(MOTOR_A_IN2_GPIO_Port, MOTOR_A_IN2_Pin, GPIO_PIN_RESET);
+        }
+    }
 
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
@@ -240,6 +283,90 @@ static void MX_ADC1_Init(void)
 }
 
 /**
+  * @brief TIM1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM1_Init(void)
+{
+
+  /* USER CODE BEGIN TIM1_Init 0 */
+
+  /* USER CODE END TIM1_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_OC_InitTypeDef sConfigOC = {0};
+  TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig = {0};
+
+  /* USER CODE BEGIN TIM1_Init 1 */
+
+  /* USER CODE END TIM1_Init 1 */
+  htim1.Instance = TIM1;
+  htim1.Init.Prescaler = 31;
+  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim1.Init.Period = 1999;
+  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim1.Init.RepetitionCounter = 0;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
+  sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sBreakDeadTimeConfig.OffStateRunMode = TIM_OSSR_DISABLE;
+  sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
+  sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
+  sBreakDeadTimeConfig.DeadTime = 0;
+  sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
+  sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
+  sBreakDeadTimeConfig.BreakFilter = 0;
+  sBreakDeadTimeConfig.Break2State = TIM_BREAK2_DISABLE;
+  sBreakDeadTimeConfig.Break2Polarity = TIM_BREAK2POLARITY_HIGH;
+  sBreakDeadTimeConfig.Break2Filter = 0;
+  sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
+  if (HAL_TIMEx_ConfigBreakDeadTime(&htim1, &sBreakDeadTimeConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM1_Init 2 */
+
+  /* USER CODE END TIM1_Init 2 */
+  HAL_TIM_MspPostInit(&htim1);
+
+}
+
+/**
   * @brief TIM2 Initialization Function
   * @param None
   * @retval None
@@ -253,18 +380,17 @@ static void MX_TIM2_Init(void)
 
   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
-  // TIM_OC_InitTypeDef sConfigOC = {0}; // Removido pois não estamos configurando PWM aqui
 
   /* USER CODE BEGIN TIM2_Init 1 */
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 0; // Mantido para a frequência de TRGO do ADC
+  htim2.Init.Prescaler = 0;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 15999; // Mantido para a frequência de TRGO do ADC
+  htim2.Init.Period = 15999;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
-  if (HAL_TIM_Base_Init(&htim2) != HAL_OK) // Apenas Base_Init é necessário se não usar PWM
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
   {
     Error_Handler();
   }
@@ -273,31 +399,47 @@ static void MX_TIM2_Init(void)
   {
     Error_Handler();
   }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE; // Essencial para o ADC
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
   {
     Error_Handler();
   }
-
-  // AS SEGUINTES LINHAS DE CONFIGURAÇÃO DE PWM FORAM REMOVIDAS
-  // if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
-  // {
-  //   Error_Handler();
-  // }
-  // sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  // sConfigOC.Pulse = 8000;
-  // sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  // sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  // if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-  // {
-  //   Error_Handler();
-  // }
   /* USER CODE BEGIN TIM2_Init 2 */
 
   /* USER CODE END TIM2_Init 2 */
-  // HAL_TIM_MspPostInit(&htim2); // Esta chamada pode não ser mais necessária se PA5 não for usado pelo TIM2
-                                // O CubeMX deve remover isso se o PA5 não estiver mais como TIM2_CH1
+
+}
+
+/**
+  * @brief TIM16 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM16_Init(void)
+{
+
+  /* USER CODE BEGIN TIM16_Init 0 */
+
+  /* USER CODE END TIM16_Init 0 */
+
+  /* USER CODE BEGIN TIM16_Init 1 */
+
+  /* USER CODE END TIM16_Init 1 */
+  htim16.Instance = TIM16;
+  htim16.Init.Prescaler = 0;
+  htim16.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim16.Init.Period = 65535;
+  htim16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim16.Init.RepetitionCounter = 0;
+  htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim16) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM16_Init 2 */
+
+  /* USER CODE END TIM16_Init 2 */
 
 }
 
@@ -335,7 +477,25 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(MOTOR_A_IN1_GPIO_Port, MOTOR_A_IN1_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, LD3_Pin|MOTOR_B_IN3_Pin|MOTOR_A_IN2_Pin|MOTOR_B_IN4_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : SENSOR_1_Pin SENSOR_2_Pin SENSOR_3_Pin SENSOR_4_Pin
+                           SENSOR_5_Pin SENSOR_6_Pin SENSOR_7_Pin */
+  GPIO_InitStruct.Pin = SENSOR_1_Pin|SENSOR_2_Pin|SENSOR_3_Pin|SENSOR_4_Pin
+                          |SENSOR_5_Pin|SENSOR_6_Pin|SENSOR_7_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : MOTOR_A_IN1_Pin */
+  GPIO_InitStruct.Pin = MOTOR_A_IN1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(MOTOR_A_IN1_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : VCP_RX_Pin */
   GPIO_InitStruct.Pin = VCP_RX_Pin;
@@ -345,12 +505,18 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF3_USART2;
   HAL_GPIO_Init(VCP_RX_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LD3_Pin */
-  GPIO_InitStruct.Pin = LD3_Pin;
+  /*Configure GPIO pins : LD3_Pin MOTOR_B_IN3_Pin MOTOR_A_IN2_Pin MOTOR_B_IN4_Pin */
+  GPIO_InitStruct.Pin = LD3_Pin|MOTOR_B_IN3_Pin|MOTOR_A_IN2_Pin|MOTOR_B_IN4_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LD3_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PB6 */
+  GPIO_InitStruct.Pin = GPIO_PIN_6;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
   // Se o pino PA5 foi configurado para TIM2_CH1, essa configuração seria feita
@@ -382,7 +548,7 @@ void Error_Handler(void)
 #ifdef  USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
-  * where the assert_param error has occurred.
+  *         where the assert_param error has occurred.
   * @param  file: pointer to the source file name
   * @param  line: assert_param error line source number
   * @retval None
