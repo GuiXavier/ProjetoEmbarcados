@@ -1,0 +1,29 @@
+
+library ieee;
+use ieee.std_logic_1164.all;
+library unsigned;
+
+
+entity pwm is
+
+        port(
+
+                clr    : in std_logic;
+                clk    : in std_logic;
+                duty   : in std_logic_vector(3 downto 0);
+                period : in std_logic_vector(3 downto 0);
+                pwm    : out std_logic;
+        
+        );
+
+end entity;    
+
+
+
+
+
+
+
+
+
+
