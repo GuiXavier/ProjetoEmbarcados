@@ -7,7 +7,7 @@ use ieee.std_logic_unsigned.all;
 
 entity pwm is
 
-        generic (N : integer := 4);
+        generic (N : integer := 16);
 
         port(
 
