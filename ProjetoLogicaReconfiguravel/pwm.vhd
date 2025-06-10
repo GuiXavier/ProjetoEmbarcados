@@ -1,7 +1,7 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
-library unsigned;
+use ieee.std_logic_unsigned.all;
 
 
 entity pwm is
@@ -12,11 +12,23 @@ entity pwm is
                 clk    : in std_logic;
                 duty   : in std_logic_vector(3 downto 0);
                 period : in std_logic_vector(3 downto 0);
-                pwm    : out std_logic;
+                pwm    : out std_logic
         
         );
 
-end entity;    
+end pwm;    
+
+architecture main of pwm is
+
+            signal count : std_logic_vector(3 downto 0);
+
+begin
+    
+            
+
+
+
+end architecture;    
 
 
 
