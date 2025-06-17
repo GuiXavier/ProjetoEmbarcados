@@ -1,3 +1,6 @@
+-- arquivo de testbench para testar os sinais 
+
+
 library ieee;
 use ieee.std_logic_1164.all;
 
