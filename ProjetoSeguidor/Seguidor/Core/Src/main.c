@@ -11,17 +11,19 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-// Enumeration para os estados do nosso teste de motor
+// Enumeration para a máquina de estados do nosso teste de motor
 typedef enum {
-    STATE_MOTOR_RUNNING,
-    STATE_MOTOR_STOPPED
+    STATE_MOTOR_STOP_BEFORE_FWD,
+    STATE_MOTOR_RUNNING_FWD,
+    STATE_MOTOR_STOP_BEFORE_REV,
+    STATE_MOTOR_RUNNING_REV
 } MotorTestState_t;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define ADC_DMA_BUFFER_LEN 1
-#define MOTOR_TEST_INTERVAL_MS 5000 // Intervalo de 5 segundos
+#define MOTOR_TEST_INTERVAL_MS 5000 // Intervalo de 5 segundos para cada estado
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -31,6 +33,7 @@ typedef enum {
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
 DMA_HandleTypeDef hdma_adc1;
+
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim16;
@@ -40,13 +43,14 @@ volatile uint16_t adc_dma_buffer[ADC_DMA_BUFFER_LEN];
 volatile uint32_t adc_value_snapshot;
 volatile float voltage_snapshot;
 
-volatile GPIO_PinState sensor_S1_state;
-volatile GPIO_PinState sensor_S2_state;
-volatile GPIO_PinState sensor_S3_state;
-volatile GPIO_PinState sensor_S4_state;
-volatile GPIO_PinState sensor_S5_state;
-volatile GPIO_PinState sensor_CLP_state;
-volatile GPIO_PinState sensor_NEAR_state;
+// Variáveis para o estado dos sensores com a nova pinagem
+volatile GPIO_PinState sensor_S1_state;   // PA0 (A0)
+volatile GPIO_PinState sensor_S2_state;   // PA1 (A1)
+volatile GPIO_PinState sensor_S3_state;   // PA3 (A2)
+volatile GPIO_PinState sensor_S4_state;   // PA4 (A3)
+volatile GPIO_PinState sensor_S5_state;   // PA5 (A4)
+volatile GPIO_PinState sensor_CLP_state;  // PA6 (A5)
+volatile GPIO_PinState sensor_NEAR_state; // PA2 (A7)
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -72,13 +76,26 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  MotorTestState_t motor_state = STATE_MOTOR_STOPPED;
+  // Inicia a máquina de estados em 'parado antes de ir para frente'
+  MotorTestState_t motor_state = STATE_MOTOR_STOP_BEFORE_FWD;
   uint32_t motor_test_timer = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
   SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
@@ -102,8 +119,13 @@ int main(void)
     Error_Handler();
   }
 
-  // --- INÍCIO DO CONTROLE DO MOTOR A ---
-  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1) != HAL_OK)
+  // --- INÍCIO DO CONTROLE DO MOTOR (BTS7960) ---
+  // Inicia ambos os canais PWM do TIM1.
+  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1) != HAL_OK) // Para LPWM (PA8)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2) != HAL_OK) // Para RPWM (PA9)
   {
     Error_Handler();
   }
@@ -115,50 +137,69 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    // --- LEITURA CONTÍNUA DOS SENSORES E ADC ---
-    adc_value_snapshot = adc_dma_buffer[0];
-    voltage_snapshot = (adc_value_snapshot / 4095.0f) * 3.3f;
-
-    // A leitura dos sensores GPIO acontece a cada iteração do loop
-    sensor_S1_state   = HAL_GPIO_ReadPin(SENSOR_1_GPIO_Port, SENSOR_1_Pin);
-    sensor_S2_state   = HAL_GPIO_ReadPin(SENSOR_2_GPIO_Port, SENSOR_2_Pin);
-    sensor_S3_state   = HAL_GPIO_ReadPin(SENSOR_3_GPIO_Port, SENSOR_3_Pin);
-    sensor_S4_state   = HAL_GPIO_ReadPin(SENSOR_4_GPIO_Port, SENSOR_4_Pin);
-    sensor_S5_state   = HAL_GPIO_ReadPin(SENSOR_5_GPIO_Port, SENSOR_5_Pin);
-    sensor_CLP_state  = HAL_GPIO_ReadPin(SENSOR_6_GPIO_Port, SENSOR_6_Pin);
-    sensor_NEAR_state = HAL_GPIO_ReadPin(SENSOR_7_GPIO_Port, SENSOR_7_Pin);
-
-
-    // --- LÓGICA DE TESTE DO MOTOR A (SEM BLOQUEIO) ---
-    // Verifica se passaram 5 segundos desde a última mudança
+    // --- LÓGICA DE TESTE DO MOTOR DE TRAÇÃO (BTS7960 com 2 PWMs) ---
     if (HAL_GetTick() - motor_test_timer >= MOTOR_TEST_INTERVAL_MS)
     {
-        motor_test_timer = HAL_GetTick(); // Reseta o timer
+        motor_test_timer = HAL_GetTick(); // Reseta o timer para o próximo intervalo de 5s
 
-        if (motor_state == STATE_MOTOR_STOPPED)
+        switch (motor_state)
         {
-            // Se estava parado, agora LIGA o motor
-            motor_state = STATE_MOTOR_RUNNING;
+            case STATE_MOTOR_STOP_BEFORE_FWD:
+                // Estava parado, agora LIGA O MOTOR PARA FRENTE
+                // Para girar para FRENTE: envia PWM para RPWM e 0 para LPWM
+                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);   // LPWM (PA8) = 0% duty cycle
+                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 300); // RPWM (PA9) = 25% duty cycle
+                // Muda para o próximo estado
+                motor_state = STATE_MOTOR_RUNNING_FWD;
+                break;
 
-            // Define a direção
-            HAL_GPIO_WritePin(MOTOR_A_IN1_GPIO_Port, MOTOR_A_IN1_Pin, GPIO_PIN_SET);
-            HAL_GPIO_WritePin(MOTOR_A_IN2_GPIO_Port, MOTOR_A_IN2_Pin, GPIO_PIN_RESET);
-            // Define a velocidade com PWM
-            __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 500);
-        }
-        else // motor_state == STATE_MOTOR_RUNNING
-        {
-            // Se estava ligado, agora PARA o motor
-            motor_state = STATE_MOTOR_STOPPED;
+            case STATE_MOTOR_RUNNING_FWD:
+                // Estava indo para frente, agora PARA
+                // Zera ambos os PWMs para parar o motor
+                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);   // LPWM = 0%
+                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);   // RPWM = 0%
+                // Muda para o próximo estado
+                motor_state = STATE_MOTOR_STOP_BEFORE_REV;
+                break;
 
-            // Zera o PWM e freia o motor
-            __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
-            HAL_GPIO_WritePin(MOTOR_A_IN1_GPIO_Port, MOTOR_A_IN1_Pin, GPIO_PIN_RESET);
-            HAL_GPIO_WritePin(MOTOR_A_IN2_GPIO_Port, MOTOR_A_IN2_Pin, GPIO_PIN_RESET);
+            case STATE_MOTOR_STOP_BEFORE_REV:
+                // Estava parado, agora LIGA O MOTOR EM RÉ
+                // Para girar em RÉ: envia PWM para LPWM e 0 para RPWM
+                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);   // RPWM (PA9) = 0% duty cycle
+                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 300); // LPWM (PA8) = 25% duty cycle
+                // Muda para o próximo estado
+                motor_state = STATE_MOTOR_RUNNING_REV;
+                break;
+
+            case STATE_MOTOR_RUNNING_REV:
+                // Estava indo em ré, agora PARA
+                // Zera ambos os PWMs para parar o motor
+                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);   // LPWM = 0%
+                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);   // RPWM = 0%
+                // Muda para o próximo estado (volta ao início do ciclo)
+                motor_state = STATE_MOTOR_STOP_BEFORE_FWD;
+                break;
         }
     }
 
+    // --- LEITURA CONTÍNUA DOS SENSORES E ADC (LÓGICA ATUALIZADA) ---
+        adc_value_snapshot = adc_dma_buffer[0];
+        voltage_snapshot = (adc_value_snapshot / 4095.0f) * 3.3f;
+
+        // Leitura dos Sensores GPIO com a pinagem final e correta
+            sensor_S1_state   = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0); // S1 em A0 (PA0)
+            sensor_S2_state   = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1); // S2 em A1 (PA1)
+            sensor_S3_state   = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3); // S3 em A2 (PA3)
+            sensor_S4_state   = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_4); // S4 em A3 (PA4)
+            sensor_S5_state   = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2); // S5 AGORA EM A7 (PA2)
+            sensor_CLP_state  = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6); // CLP em A5 (PA6)
+            sensor_NEAR_state = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7); // NEAR em A6 (PA7)
+
+            // Delay para não sobrecarregar o debugger
+                HAL_Delay(100);
+
     /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -308,7 +349,7 @@ static void MX_TIM1_Init(void)
   htim1.Init.Period = 1999;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
-  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
   {
     Error_Handler();
@@ -341,6 +382,10 @@ static void MX_TIM1_Init(void)
     Error_Handler();
   }
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
   {
     Error_Handler();
   }
@@ -477,25 +522,15 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(MOTOR_A_IN1_GPIO_Port, MOTOR_A_IN1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, LD3_Pin|SERVO_IN4_Pin|SERVO_IN3_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LD3_Pin|MOTOR_B_IN3_Pin|MOTOR_A_IN2_Pin|MOTOR_B_IN4_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pins : SENSOR_1_Pin SENSOR_2_Pin SENSOR_3_Pin SENSOR_4_Pin
-                           SENSOR_5_Pin SENSOR_6_Pin SENSOR_7_Pin */
-  GPIO_InitStruct.Pin = SENSOR_1_Pin|SENSOR_2_Pin|SENSOR_3_Pin|SENSOR_4_Pin
-                          |SENSOR_5_Pin|SENSOR_6_Pin|SENSOR_7_Pin;
+  /*Configure GPIO pins : SENSOR_S1_Pin SENSOR_S2_Pin SENSOR_S5_Pin SENSOR_S3_Pin
+                           SENSOR_S4_Pin SENSOR_CLP_Pin SENSOR_NEAR_Pin */
+  GPIO_InitStruct.Pin = SENSOR_S1_Pin|SENSOR_S2_Pin|SENSOR_S5_Pin|SENSOR_S3_Pin
+                          |SENSOR_S4_Pin|SENSOR_CLP_Pin|SENSOR_NEAR_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : MOTOR_A_IN1_Pin */
-  GPIO_InitStruct.Pin = MOTOR_A_IN1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(MOTOR_A_IN1_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : VCP_RX_Pin */
   GPIO_InitStruct.Pin = VCP_RX_Pin;
@@ -505,17 +540,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF3_USART2;
   HAL_GPIO_Init(VCP_RX_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LD3_Pin MOTOR_B_IN3_Pin MOTOR_A_IN2_Pin MOTOR_B_IN4_Pin */
-  GPIO_InitStruct.Pin = LD3_Pin|MOTOR_B_IN3_Pin|MOTOR_A_IN2_Pin|MOTOR_B_IN4_Pin;
+  /*Configure GPIO pins : LD3_Pin SERVO_IN4_Pin SERVO_IN3_Pin */
+  GPIO_InitStruct.Pin = LD3_Pin|SERVO_IN4_Pin|SERVO_IN3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PB6 */
-  GPIO_InitStruct.Pin = GPIO_PIN_6;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */

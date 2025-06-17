@@ -59,28 +59,26 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define MCO_Pin GPIO_PIN_0
-#define MCO_GPIO_Port GPIOA
-#define SENSOR_1_Pin GPIO_PIN_1
-#define SENSOR_1_GPIO_Port GPIOA
-#define SENSOR_2_Pin GPIO_PIN_2
-#define SENSOR_2_GPIO_Port GPIOA
-#define SENSOR_3_Pin GPIO_PIN_3
-#define SENSOR_3_GPIO_Port GPIOA
-#define SENSOR_4_Pin GPIO_PIN_4
-#define SENSOR_4_GPIO_Port GPIOA
-#define SENSOR_5_Pin GPIO_PIN_5
-#define SENSOR_5_GPIO_Port GPIOA
-#define SENSOR_6_Pin GPIO_PIN_6
-#define SENSOR_6_GPIO_Port GPIOA
-#define SENSOR_7_Pin GPIO_PIN_7
-#define SENSOR_7_GPIO_Port GPIOA
-#define MOTOR_A_ENA_Pin GPIO_PIN_8
-#define MOTOR_A_ENA_GPIO_Port GPIOA
-#define MOTOR_B_ENB_Pin GPIO_PIN_9
-#define MOTOR_B_ENB_GPIO_Port GPIOA
-#define MOTOR_A_IN1_Pin GPIO_PIN_11
-#define MOTOR_A_IN1_GPIO_Port GPIOA
+#define SENSOR_S1_Pin GPIO_PIN_0
+#define SENSOR_S1_GPIO_Port GPIOA
+#define SENSOR_S2_Pin GPIO_PIN_1
+#define SENSOR_S2_GPIO_Port GPIOA
+#define SENSOR_S5_Pin GPIO_PIN_2
+#define SENSOR_S5_GPIO_Port GPIOA
+#define SENSOR_S3_Pin GPIO_PIN_3
+#define SENSOR_S3_GPIO_Port GPIOA
+#define SENSOR_S4_Pin GPIO_PIN_4
+#define SENSOR_S4_GPIO_Port GPIOA
+#define SENSOR_CLP_Pin GPIO_PIN_6
+#define SENSOR_CLP_GPIO_Port GPIOA
+#define SENSOR_NEAR_Pin GPIO_PIN_7
+#define SENSOR_NEAR_GPIO_Port GPIOA
+#define MOTOR_LPWM_Pin GPIO_PIN_8
+#define MOTOR_LPWM_GPIO_Port GPIOA
+#define MOTOR_RPWM_Pin GPIO_PIN_9
+#define MOTOR_RPWM_GPIO_Port GPIOA
+#define SERVO_PWM_Pin GPIO_PIN_11
+#define SERVO_PWM_GPIO_Port GPIOA
 #define SWDIO_Pin GPIO_PIN_13
 #define SWDIO_GPIO_Port GPIOA
 #define SWCLK_Pin GPIO_PIN_14
@@ -89,12 +87,10 @@ void Error_Handler(void);
 #define VCP_RX_GPIO_Port GPIOA
 #define LD3_Pin GPIO_PIN_3
 #define LD3_GPIO_Port GPIOB
-#define MOTOR_B_IN3_Pin GPIO_PIN_4
-#define MOTOR_B_IN3_GPIO_Port GPIOB
-#define MOTOR_A_IN2_Pin GPIO_PIN_5
-#define MOTOR_A_IN2_GPIO_Port GPIOB
-#define MOTOR_B_IN4_Pin GPIO_PIN_7
-#define MOTOR_B_IN4_GPIO_Port GPIOB
+#define SERVO_IN4_Pin GPIO_PIN_4
+#define SERVO_IN4_GPIO_Port GPIOB
+#define SERVO_IN3_Pin GPIO_PIN_7
+#define SERVO_IN3_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
