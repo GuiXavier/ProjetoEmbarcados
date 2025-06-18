@@ -41,7 +41,6 @@ begin
             end process;        
             
             -- output saida 
-
             pwmout : process(count)
             begin
                     if count < duty then 
