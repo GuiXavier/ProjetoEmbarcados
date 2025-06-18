@@ -18,7 +18,7 @@ architecture main of pwm_tb is
 
 begin
 
-    CONT : entity work.pwm 
+    CONT : entity work.pwm(main) 
         generic map(n) 
         port map(clr, clk, duty, period, pwm);
 
@@ -48,5 +48,7 @@ begin
         period <= x"D";  -- D em hexadecimal (1101)
         wait;            -- aguarda indefinidamente após aplicar estímulo
     end process;
+
+    -- estudo para gerar um sinal pwm de 2kHz
 
 end architecture;
