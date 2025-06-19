@@ -21,7 +21,7 @@ entity pwm is
 
 end pwm;    
 
-architecture main of pwm is
+architecture princi of pwm is
 
             signal count : std_logic_vector(N - 1 downto 0);
 

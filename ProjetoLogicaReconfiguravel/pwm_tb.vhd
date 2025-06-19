@@ -18,7 +18,7 @@ architecture main of pwm_tb is
 
 begin
 
-    CONT : entity work.pwm(main) 
+    CONT : entity work.pwm(princi) 
         generic map(n) 
         port map(clr, clk, duty, period, pwm);
 
