@@ -1,0 +1,30 @@
+# Arquivos e pastas de Build gerados pelo STM32CubeIDE
+Debug/
+Release/
+build/
+
+# Configurações do Eclipse/STM32CubeIDE
+.settings/
+.project
+.cproject
+.mxproject
+
+# Arquivos de compilação e objetos
+*.o
+*.su
+*.d
+
+# Arquivos de saída do Linker e Debugger
+*.elf
+*.map
+*.list
+*.hex
+*.bin
+
+# Arquivos de backup e temporários
+*~
+*.swp
+*.bak
+
+# Configurações do VS Code (opcional, mas recomendado)
+.vscode/
