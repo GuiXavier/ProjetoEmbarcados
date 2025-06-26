@@ -112,30 +112,42 @@ begin
                 -- PRETO = '1', BRANCO = '0'
                 if ir_esquerdo = '0' and ir_direito = '0' then
                     -- Frente
-                    motor_e_1n1 <= '1'; motor_e_1n2 <= '0';
-                    motor_d_1n1 <= '1'; motor_d_1n2 <= '0';
+                    motor_e_1n1 <= '1'; 
+                    motor_e_1n2 <= '0';
+                    motor_d_1n1 <= '1';
+                    motor_d_1n2 <= '0';
                 elsif ir_esquerdo = '1' and ir_direito = '0' then
                     -- Corrigir para esquerda
-                    motor_e_1n1 <= '0'; motor_e_1n2 <= '1';
-                    motor_d_1n1 <= '1'; motor_d_1n2 <= '0';
+                    motor_e_1n1 <= '0'; 
+                    motor_e_1n2 <= '1';
+                    motor_d_1n1 <= '1'; 
+                    motor_d_1n2 <= '0';
                 elsif ir_esquerdo = '0' and ir_direito = '1' then
                     -- Corrigir para direita
-                    motor_e_1n1 <= '1'; motor_e_1n2 <= '0';
-                    motor_d_1n1 <= '0'; motor_d_1n2 <= '1';
+                    motor_e_1n1 <= '1'; 
+                    motor_e_1n2 <= '0';
+                    motor_d_1n1 <= '0'; 
+                    motor_d_1n2 <= '1';
                 else
                     -- Ambos no preto (ou ruído) ? segue reto
-                    motor_e_1n1 <= '1'; motor_e_1n2 <= '0';
-                    motor_d_1n1 <= '1'; motor_d_1n2 <= '0';
+                    motor_e_1n1 <= '1'; 
+                    motor_e_1n2 <= '0';
+                    motor_d_1n1 <= '1'; 
+                    motor_d_1n2 <= '0';
                 end if;
             else
                 -- Estado parado
-                motor_e_1n1 <= '0'; motor_e_1n2 <= '0';
-                motor_d_1n1 <= '0'; motor_d_1n2 <= '0';
+                motor_e_1n1 <= '0'; 
+                motor_e_1n2 <= '0';
+                motor_d_1n1 <= '0'; 
+                motor_d_1n2 <= '0';
             end if;
         end if;
     end process;
 
 
     -- IMPLEMENTAÇÃO DO PID (PROPORCIONAL - INTEGRADOR - DERIVATIVO)
+
+
 
 end architecture;        
