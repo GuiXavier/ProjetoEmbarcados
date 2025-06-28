@@ -108,7 +108,7 @@ begin
         end if;
     end process;
 
-    
+    -- logica do sensor de linha
 
 
 end architecture;
