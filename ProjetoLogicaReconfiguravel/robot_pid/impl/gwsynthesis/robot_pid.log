@@ -1,9 +1,26 @@
 GowinSynthesis start
 Running parser ...
 Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd'
-Analyzing entity 'robot_pid_seguidor_linha'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":5)
-Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":28)
-Processing 'robot_pid_seguidor_linha(rtl)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":5)
-ERROR (EX4923) : Expression has 19u elements, expected 16u("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":125)
-ERROR (EX4844) : Netlist 'robot_pid_seguidor_linha(rtl)' remains a black box due to errors in its contents("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":5)
+Analyzing entity 'seguidor_linha'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":5)
+Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":20)
+Processing 'seguidor_linha(rtl)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":5)
+NOTE  (EX0101) : Current top module is "seguidor_linha"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\gwsynthesis\robot_pid.vg" completed
+[100%] Generate report file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\gwsynthesis\robot_pid_syn.rpt.html" completed
 GowinSynthesis finish
