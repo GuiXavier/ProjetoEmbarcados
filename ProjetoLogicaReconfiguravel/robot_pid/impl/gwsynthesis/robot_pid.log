@@ -1,0 +1,9 @@
+GowinSynthesis start
+Running parser ...
+Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd'
+Analyzing entity 'robot_pid_seguidor_linha'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":5)
+Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":28)
+Processing 'robot_pid_seguidor_linha(rtl)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":5)
+ERROR (EX4923) : Expression has 19u elements, expected 16u("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":125)
+ERROR (EX4844) : Netlist 'robot_pid_seguidor_linha(rtl)' remains a black box due to errors in its contents("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":5)
+GowinSynthesis finish
