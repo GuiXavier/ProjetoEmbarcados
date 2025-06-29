@@ -5,6 +5,16 @@
    "Library" : "work",
    "Path" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/robot.vhd",
    "Type" : "vhdl"
+  },
+  {
+   "Library" : "work",
+   "Path" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/teste.vhd",
+   "Type" : "vhdl"
+  },
+  {
+   "Library" : "work",
+   "Path" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/blink.vhd",
+   "Type" : "vhdl"
   }
  ],
  "IncludePath" : [

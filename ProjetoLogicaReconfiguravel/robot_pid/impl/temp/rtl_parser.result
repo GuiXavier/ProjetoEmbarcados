@@ -6,5 +6,21 @@
   "ModuleFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/robot.vhd",
   "ModuleLine" : 5,
   "ModuleName" : "seguidor_linha"
+ },
+ {
+  "InstFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/teste.vhd",
+  "InstLine" : 5,
+  "InstName" : "teste",
+  "ModuleFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/teste.vhd",
+  "ModuleLine" : 5,
+  "ModuleName" : "teste"
+ },
+ {
+  "InstFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/blink.vhd",
+  "InstLine" : 4,
+  "InstName" : "blink",
+  "ModuleFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/blink.vhd",
+  "ModuleLine" : 4,
+  "ModuleName" : "blink"
  }
 ]
