@@ -4,35 +4,30 @@ use ieee.numeric_std.all;
 
 entity seguidor_linha is
     port (
-
-        -- configurar as portas no FloorPlanner
-
+        -- Configurar as portas no FloorPlanner (ou arquivo de restrições)
         clk         : in  std_logic;
         reset       : in  std_logic;
         btn_start   : in  std_logic;
-        ir_esquerdo : in  std_logic;
-        ir_direito  : in  std_logic;
+        ir_esquerdo : in  std_logic; -- Sensor IR principal esquerdo
+        ir_direito  : in  std_logic; -- Sensor IR principal direito
 
-        motor_r_in1 : out std_logic;
-        motor_r_in2 : out std_logic;
-        motor_l_in1 : out std_logic;
-        motor_l_in2 : out std_logic;
+        motor_r_in1 : out std_logic; -- Controle Motor Direito (L298N IN3 ou IN4)
+        motor_r_in2 : out std_logic; -- Controle Motor Direito (L298N IN3 ou IN4)
+        motor_l_in1 : out std_logic; -- Controle Motor Esquerdo (L298N IN1 ou IN2)
+        motor_l_in2 : out std_logic; -- Controle Motor Esquerdo (L298N IN1 ou IN2)
         
-        -- sensores
-        ir1_sensor : in std_logic;
-        ir2_sensor : in std_logic;
-        ir3_sensor : in std_logic;
+        -- Sensores de linha adicionais (futuros)
+        --ir1_sensor  : in std_logic; -- Sensor de linha adicional 1
+        --ir2_sensor  : in std_logic; -- Sensor de linha adicional 2
+        --ir3_sensor  : in std_logic; -- Sensor de linha adicional 3
         
-        -- testando o sensor
-
-        led_out : out std_logic
-
-
+        -- LED de teste
+        led_out     : out std_logic  -- Saída para LED de teste (ex: LED onboard)
     );
 end entity;
 
 architecture rtl of seguidor_linha is
-    signal estado        : std_logic := '0'; -- 0 = parado, 1 = em funcionamento
+    signal estado        : std_logic := '0'; -- '0' = parado, '1' = em funcionamento
     signal btn_sync_0    : std_logic := '0';
     signal btn_sync_1    : std_logic := '0';
     signal btn_rise_edge : std_logic := '0';
@@ -63,11 +58,11 @@ begin
     process(clk, reset)
     begin
         if reset = '1' then
-            counter      <= (others => '0');
-            debounce_ok  <= '0';
+            counter     <= (others => '0');
+            debounce_ok <= '0';
         elsif rising_edge(clk) then
             if btn_sync_0 = '1' then
-                if counter < x"7FFFFF" then     -- x"7FFFFF" = 24 bits
+                if counter < x"7FFFFF" then      -- x"7FFFFF" = 23 bits (0 a 8388607)
                     counter <= counter + 1;
                 else
                     debounce_ok <= '1';
@@ -97,31 +92,41 @@ begin
         if rising_edge(clk) then
             if estado = '1' then
                 -- PRETO = '1', BRANCO = '0'
+                -- Lógica simples de seguir linha com 2 sensores
                 if ir_esquerdo = '0' and ir_direito = '0' then
-                    -- Frente
-                    motor_l_in1 <= '1'; motor_l_in2 <= '0';
-                    motor_r_in1 <= '1'; motor_r_in2 <= '0';
+                    -- Ambos na linha (Branco = 0). Vai pra frente.
+                    motor_l_in1 <= '1'; motor_l_in2 <= '0'; -- Motor Esquerdo para frente
+                    motor_r_in1 <= '1'; motor_r_in2 <= '0'; -- Motor Direito para frente
                 elsif ir_esquerdo = '1' and ir_direito = '0' then
-                    -- Corrigir para esquerda
-                    motor_l_in1 <= '0'; motor_l_in2 <= '1';
-                    motor_r_in1 <= '1'; motor_r_in2 <= '0';
+                    -- Sensor esquerdo no preto (linha desviou para esquerda). Vira para direita.
+                    motor_l_in1 <= '1'; motor_l_in2 <= '0'; -- Motor Esquerdo para frente
+                    motor_r_in1 <= '0'; motor_r_in2 <= '1'; -- Motor Direito para trás (ou parado para virar mais rápido)
                 elsif ir_esquerdo = '0' and ir_direito = '1' then
-                    -- Corrigir para direita
-                    motor_l_in1 <= '1'; motor_l_in2 <= '0';
-                    motor_r_in1 <= '0'; motor_r_in2 <= '1';
-                else
-                    -- Ambos no preto (ou ruído) – segue reto
+                    -- Sensor direito no preto (linha desviou para direita). Vira para esquerda.
+                    motor_l_in1 <= '0'; motor_l_in2 <= '1'; -- Motor Esquerdo para trás (ou parado)
+                    motor_r_in1 <= '1'; motor_r_in2 <= '0'; -- Motor Direito para frente
+                else -- ir_esquerdo = '1' and ir_direito = '1'
+                    -- Ambos no preto (linha muito larga ou totalmente fora). Pode parar ou ir reto.
+                    -- Aqui estamos fazendo ir reto por simplicidade.
                     motor_l_in1 <= '1'; motor_l_in2 <= '0';
                     motor_r_in1 <= '1'; motor_r_in2 <= '0';
                 end if;
+                
+                -- Exemplo de uso dos sensores adicionais (apenas para demonstração)
+                -- Você precisaria de uma lógica mais complexa com 3 ou 5 sensores.
+                -- if ir1_sensor = '1' then
+                --    -- Algo com sensor 1
+                -- end if;
+
             else
-                -- Estado parado
+                -- Estado parado: desliga os motores
                 motor_l_in1 <= '0'; motor_l_in2 <= '0';
                 motor_r_in1 <= '0'; motor_r_in2 <= '0';
             end if;
-       
+        
+            -- LED de teste liga quando o robô está em funcionamento
+            led_out <= estado;
         end if;
     end process;
-
-   
+    
 end architecture;
