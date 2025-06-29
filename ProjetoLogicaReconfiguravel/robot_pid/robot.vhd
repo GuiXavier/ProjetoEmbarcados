@@ -4,6 +4,9 @@ use ieee.numeric_std.all;
 
 entity seguidor_linha is
     port (
+
+        -- configurar as portas no FloorPlanner
+
         clk         : in  std_logic;
         reset       : in  std_logic;
         btn_start   : in  std_logic;
@@ -64,7 +67,7 @@ begin
             debounce_ok  <= '0';
         elsif rising_edge(clk) then
             if btn_sync_0 = '1' then
-                if counter < x"7FFFFF" then
+                if counter < x"7FFFFF" then     -- x"7FFFFF" = 24 bits
                     counter <= counter + 1;
                 else
                     debounce_ok <= '1';
