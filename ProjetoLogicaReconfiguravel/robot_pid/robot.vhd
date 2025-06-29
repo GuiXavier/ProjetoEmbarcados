@@ -13,7 +13,11 @@ entity seguidor_linha is
         motor_r_in1 : out std_logic;
         motor_r_in2 : out std_logic;
         motor_l_in1 : out std_logic;
-        motor_l_in2 : out std_logic
+        motor_l_in2 : out std_logic;
+        
+        sensor_output : in std_logic;
+        linha_detectada : out std_logic
+
     );
 end entity;
 

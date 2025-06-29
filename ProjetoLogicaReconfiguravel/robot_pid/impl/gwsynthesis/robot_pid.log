@@ -2,10 +2,12 @@ GowinSynthesis start
 Running parser ...
 Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd'
 Analyzing entity 'seguidor_linha'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":5)
-Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":20)
+Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":24)
 Processing 'seguidor_linha(rtl)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":5)
 NOTE  (EX0101) : Current top module is "seguidor_linha"
+WARN  (EX0211) : The output port "linha_detectada" of module "seguidor_linha" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":19)
 [5%] Running netlist conversion ...
+WARN  (CV0016) : Input sensor_output is unused("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":18)
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed
