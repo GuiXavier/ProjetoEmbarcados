@@ -15,8 +15,15 @@ entity seguidor_linha is
         motor_l_in1 : out std_logic;
         motor_l_in2 : out std_logic;
         
-        sensor_output : in std_logic;
-        linha_detectada : out std_logic
+        -- sensores
+        ir1_sensor : in std_logic;
+        ir2_sensor : in std_logic;
+        ir3_sensor : in std_logic;
+        
+        -- testando o sensor
+
+        led_out : out std_logic
+
 
     );
 end entity;
@@ -109,10 +116,24 @@ begin
                 motor_l_in1 <= '0'; motor_l_in2 <= '0';
                 motor_r_in1 <= '0'; motor_r_in2 <= '0';
             end if;
+        
+        -- teste do sensor
+        
+        if ir1_sensor = '1' then 
+                led_out <= '1';
+        else 
+                led_out <= '0';
+        end if;
+        
+        -- teste do sensor
+
         end if;
     end process;
 
     -- logica do sensor de linha
-
+        
+   
+        
+    
 
 end architecture;
