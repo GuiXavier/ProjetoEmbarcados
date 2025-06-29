@@ -1,6 +1,6 @@
 
 clk     		----> Pino IO10A  (47)   %% professor fez o clock no pino 47
-rst     		----> Pino IOR10B (13)
+rst     		----> Pino IOR10B (13)	 
 btn_start 		----> Pino IOR10B (13)
 ir_esquerdo		----> Pino IOR6A (28)
 ir_direito		----> Pino IOR6I (27)
