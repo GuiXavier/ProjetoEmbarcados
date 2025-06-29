@@ -10,6 +10,9 @@ motor_e_1n1		----> Pino IOR6J (19)
 motor_e_1n2		----> Pino IOR10A (20)
 
 
+sensor1                 ----> Pino LVCMOS18 (38)
+
+
 
 
 

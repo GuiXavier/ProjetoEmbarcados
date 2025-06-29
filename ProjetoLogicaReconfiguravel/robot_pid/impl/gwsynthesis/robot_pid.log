@@ -3,14 +3,14 @@ Running parser ...
 Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd'
 Analyzing entity 'seguidor_linha'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":5)
 Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":34)
-Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\teste.vhd'
-Analyzing entity 'teste'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\teste.vhd":5)
-Analyzing architecture 'arch'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\teste.vhd":12)
 Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\blink.vhd'
 Analyzing entity 'blink'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\blink.vhd":4)
 Analyzing architecture 'main'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\blink.vhd":14)
-Processing 'blink(main)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\blink.vhd":4)
-NOTE  (EX0101) : Current top module is "blink"
+Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\teste.vhd'
+Analyzing entity 'teste'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\teste.vhd":5)
+Analyzing architecture 'arch'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\teste.vhd":12)
+Processing 'teste(arch)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\teste.vhd":5)
+NOTE  (EX0101) : Current top module is "teste"
 [5%] Running netlist conversion ...
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed
