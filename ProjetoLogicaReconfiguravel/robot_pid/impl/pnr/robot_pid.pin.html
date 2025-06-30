@@ -74,7 +74,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Sun Jun 29 15:17:53 2025
+<td>Mon Jun 30 18:35:38 2025
 </td>
 </tr>
 <tr>
@@ -102,12 +102,28 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td><b>BankVccio</b></td>
 </tr>
 <tr>
-<td class="label">sensor</td>
+<td class="label">clk</td>
 <td>-</td>
-<td>38/0</td>
+<td>47/0</td>
 <td>Y</td>
 <td>in</td>
-<td>IOT17[A]</td>
+<td>IOT10[A]</td>
+<td>GCLKT_0</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>ON</td>
+<td>NONE</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">sensores_linha[1]</td>
+<td>-</td>
+<td>18/1</td>
+<td>Y</td>
+<td>in</td>
+<td>IOR6[H]</td>
 <td>-</td>
 <td>LVCMOS18</td>
 <td>NA</td>
@@ -118,12 +134,76 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>1.8</td>
 </tr>
 <tr>
-<td class="label">led_out</td>
+<td class="label">sensores_linha[2]</td>
 <td>-</td>
-<td>9/1</td>
+<td>17/1</td>
+<td>Y</td>
+<td>in</td>
+<td>IOR6[G]</td>
+<td>-</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>ON</td>
+<td>NONE</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">sensores_linha[3]</td>
+<td>-</td>
+<td>16/1</td>
+<td>Y</td>
+<td>in</td>
+<td>IOR6[F]</td>
+<td>-</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>ON</td>
+<td>NONE</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">motor_l_in1</td>
+<td>-</td>
+<td>19/1</td>
 <td>Y</td>
 <td>out</td>
-<td>IOR2[A]</td>
+<td>IOR6[J]</td>
+<td>DOUT/WE_N</td>
+<td>LVCMOS18</td>
+<td>8</td>
+<td>UP</td>
+<td>NA</td>
+<td>NA</td>
+<td>OFF</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">motor_l_in2</td>
+<td>-</td>
+<td>29/1</td>
+<td>Y</td>
+<td>out</td>
+<td>IOR6[E]</td>
+<td>FASTRD_N/D3</td>
+<td>LVCMOS18</td>
+<td>8</td>
+<td>UP</td>
+<td>NA</td>
+<td>NA</td>
+<td>OFF</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">led_status</td>
+<td>-</td>
+<td>11/1</td>
+<td>Y</td>
+<td>out</td>
+<td>IOR3[A]</td>
 <td>-</td>
 <td>LVCMOS18</td>
 <td>8</td>
@@ -237,7 +317,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">47/0</td>
-<td>-</td>
+<td>clk</td>
 <td>in</td>
 <td>IOT10[A]</td>
 <td>GCLKT_0</td>
@@ -377,7 +457,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">38/0</td>
-<td>sensor</td>
+<td>-</td>
 <td>in</td>
 <td>IOT17[A]</td>
 <td>-</td>
@@ -405,16 +485,16 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">9/1</td>
-<td>led_out</td>
-<td>out</td>
+<td>-</td>
+<td>in</td>
 <td>IOR2[A]</td>
 <td>-</td>
 <td>LVCMOS18</td>
-<td>8</td>
+<td>NA</td>
 <td>UP</td>
+<td>ON</td>
+<td>NONE</td>
 <td>NA</td>
-<td>NA</td>
-<td>OFF</td>
 <td>1.8</td>
 </tr>
 <tr>
@@ -433,16 +513,16 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">11/1</td>
-<td>-</td>
-<td>in</td>
+<td>led_status</td>
+<td>out</td>
 <td>IOR3[A]</td>
 <td>-</td>
 <td>LVCMOS18</td>
-<td>NA</td>
+<td>8</td>
 <td>UP</td>
-<td>ON</td>
-<td>NONE</td>
 <td>NA</td>
+<td>NA</td>
+<td>OFF</td>
 <td>1.8</td>
 </tr>
 <tr>
@@ -545,21 +625,21 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">29/1</td>
-<td>-</td>
-<td>in</td>
+<td>motor_l_in2</td>
+<td>out</td>
 <td>IOR6[E]</td>
 <td>FASTRD_N/D3</td>
 <td>LVCMOS18</td>
-<td>NA</td>
+<td>8</td>
 <td>UP</td>
-<td>ON</td>
-<td>NONE</td>
 <td>NA</td>
+<td>NA</td>
+<td>OFF</td>
 <td>1.8</td>
 </tr>
 <tr>
 <td class="label">16/1</td>
-<td>-</td>
+<td>sensores_linha[3]</td>
 <td>in</td>
 <td>IOR6[F]</td>
 <td>-</td>
@@ -573,7 +653,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">17/1</td>
-<td>-</td>
+<td>sensores_linha[2]</td>
 <td>in</td>
 <td>IOR6[G]</td>
 <td>-</td>
@@ -587,7 +667,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">18/1</td>
-<td>-</td>
+<td>sensores_linha[1]</td>
 <td>in</td>
 <td>IOR6[H]</td>
 <td>-</td>
@@ -615,16 +695,16 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">19/1</td>
-<td>-</td>
-<td>in</td>
+<td>motor_l_in1</td>
+<td>out</td>
 <td>IOR6[J]</td>
 <td>DOUT/WE_N</td>
 <td>LVCMOS18</td>
-<td>NA</td>
+<td>8</td>
 <td>UP</td>
-<td>ON</td>
-<td>NONE</td>
 <td>NA</td>
+<td>NA</td>
+<td>OFF</td>
 <td>1.8</td>
 </tr>
 <tr>
