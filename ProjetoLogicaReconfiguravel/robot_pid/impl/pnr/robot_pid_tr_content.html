@@ -51,7 +51,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Sun Jun 29 15:17:53 2025
+<td>Tue Jul  1 12:15:23 2025
 </td>
 </tr>
 <tr>
@@ -72,11 +72,11 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Numbers of Paths Analyzed</td>
-<td>1</td>
+<td>28</td>
 </tr>
 <tr>
 <td class="label">Numbers of Endpoints Analyzed</td>
-<td>1</td>
+<td>15</td>
 </tr>
 <tr>
 <td class="label">Numbers of Falling Endpoints</td>
@@ -105,6 +105,18 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <th class="label">Master</th>
 <th class="label">Objects</th>
 </tr>
+<tr>
+<td>1</td>
+<td>clk</td>
+<td>Base</td>
+<td>20.000</td>
+<td>50.000
+<td>0.000</td>
+<td>10.000</td>
+<td></td>
+<td></td>
+<td>clk_ibuf/I </td>
+</tr>
 </table>
 <h2><a name="Max_Frequency_Report">Max Frequency Summary:</a></h2>
 <table>
@@ -117,6 +129,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <th>Entity</th>
 </tr>
 </table>
+<h4>No timing paths to get frequency of clk!</h4>
 <h2><a name="Total_Negative_Slack_Report">Total Negative Slack Summary:</a></h2>
 <table class="detail_table">
 <tr>
@@ -124,6 +137,18 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <th class="label">Analysis Type</th>
 <th class="label">Endpoints TNS</th>
 <th class="label">Number of Endpoints</th>
+</tr>
+<tr>
+<td>clk</td>
+<td>Setup</td>
+<td>0.000</td>
+<td>0</td>
+</tr>
+<tr>
+<td>clk</td>
+<td>Hold</td>
+<td>0.000</td>
+<td>0</td>
 </tr>
 </table>
 <h1><a name="Detail">Timing Details</a></h1>
@@ -152,7 +177,96 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <th class="label">Objects</th>
 </tr>
 <h4>Report Command:report_min_pulse_width -nworst 10 -detail</h4>
-<h4>Nothing to report!</h4>
+<tr>
+<td>1</td>
+<td>6.482</td>
+<td>7.857</td>
+<td>1.375</td>
+<td>High Pulse Width</td>
+<td>clk</td>
+<td>motor_l_in2_s2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6.482</td>
+<td>7.857</td>
+<td>1.375</td>
+<td>High Pulse Width</td>
+<td>clk</td>
+<td>motor_r_in1_s2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>6.482</td>
+<td>7.857</td>
+<td>1.375</td>
+<td>High Pulse Width</td>
+<td>clk</td>
+<td>led_status_s2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>6.482</td>
+<td>7.857</td>
+<td>1.375</td>
+<td>High Pulse Width</td>
+<td>clk</td>
+<td>motor_r_in2_s2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>6.482</td>
+<td>7.857</td>
+<td>1.375</td>
+<td>High Pulse Width</td>
+<td>clk</td>
+<td>motor_l_in1_s2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>9.050</td>
+<td>10.425</td>
+<td>1.375</td>
+<td>Low Pulse Width</td>
+<td>clk</td>
+<td>motor_l_in1_s2</td>
+</tr>
+<tr>
+<td>7</td>
+<td>9.050</td>
+<td>10.425</td>
+<td>1.375</td>
+<td>Low Pulse Width</td>
+<td>clk</td>
+<td>motor_r_in2_s2</td>
+</tr>
+<tr>
+<td>8</td>
+<td>9.050</td>
+<td>10.425</td>
+<td>1.375</td>
+<td>Low Pulse Width</td>
+<td>clk</td>
+<td>motor_r_in1_s2</td>
+</tr>
+<tr>
+<td>9</td>
+<td>9.050</td>
+<td>10.425</td>
+<td>1.375</td>
+<td>Low Pulse Width</td>
+<td>clk</td>
+<td>motor_l_in2_s2</td>
+</tr>
+<tr>
+<td>10</td>
+<td>9.050</td>
+<td>10.425</td>
+<td>1.375</td>
+<td>Low Pulse Width</td>
+<td>clk</td>
+<td>led_status_s2</td>
+</tr>
 </table>
 <h2><a name="Timing_Report_by_Analysis_Type">Timing Report By Analysis Type:</a></h2>
 <h3><a name="Setup_Analysis">Setup Analysis Report</a></h3>
@@ -169,7 +283,1186 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <h4>No removal paths to report!</h4>
 <h2><a name="Minimum_Pulse_Width_Report">Minimum Pulse Width Report:</a></h2>
 <h4>Report Command:report_min_pulse_width -nworst 10 -detail</h4>
-<h4>Nothing to report!</h4>
+<h3>MPW1</h3>
+<p><b>MPW Summary:</b></p>
+<table class="summary_table">
+<tr>
+<td class="label">Slack:</td>
+<td>6.482</td>
+</tr>
+<tr>
+<td class="label">Actual Width:</td>
+<td>7.857</td>
+</tr>
+<tr>
+<td class="label">Required Width:</td>
+<td>1.375</td>
+</tr>
+<tr>
+<td class="label">Type:</td>
+<td>High Pulse Width</td>
+</tr>
+<tr>
+<td class="label">Clock:</td>
+<td>clk</td>
+</tr>
+<tr>
+<td class="label"> Objects:</td>
+<td>motor_l_in2_s2</td>
+</tr>
+</table>
+<p><b>Late clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>4.230</td>
+<td>4.230</td>
+<td>tINS</td>
+<td>RR</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>4.498</td>
+<td>0.268</td>
+<td>tNET</td>
+<td>RR</td>
+<td>motor_l_in2_s2/CLK</td>
+</tr>
+</table>
+<p><b>Early clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>FF</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>12.140</td>
+<td>2.140</td>
+<td>tINS</td>
+<td>FF</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>12.355</td>
+<td>0.215</td>
+<td>tNET</td>
+<td>FF</td>
+<td>motor_l_in2_s2/CLK</td>
+</tr>
+</table>
+<h3>MPW2</h3>
+<p><b>MPW Summary:</b></p>
+<table class="summary_table">
+<tr>
+<td class="label">Slack:</td>
+<td>6.482</td>
+</tr>
+<tr>
+<td class="label">Actual Width:</td>
+<td>7.857</td>
+</tr>
+<tr>
+<td class="label">Required Width:</td>
+<td>1.375</td>
+</tr>
+<tr>
+<td class="label">Type:</td>
+<td>High Pulse Width</td>
+</tr>
+<tr>
+<td class="label">Clock:</td>
+<td>clk</td>
+</tr>
+<tr>
+<td class="label"> Objects:</td>
+<td>motor_r_in1_s2</td>
+</tr>
+</table>
+<p><b>Late clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>4.230</td>
+<td>4.230</td>
+<td>tINS</td>
+<td>RR</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>4.498</td>
+<td>0.268</td>
+<td>tNET</td>
+<td>RR</td>
+<td>motor_r_in1_s2/CLK</td>
+</tr>
+</table>
+<p><b>Early clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>FF</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>12.140</td>
+<td>2.140</td>
+<td>tINS</td>
+<td>FF</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>12.355</td>
+<td>0.215</td>
+<td>tNET</td>
+<td>FF</td>
+<td>motor_r_in1_s2/CLK</td>
+</tr>
+</table>
+<h3>MPW3</h3>
+<p><b>MPW Summary:</b></p>
+<table class="summary_table">
+<tr>
+<td class="label">Slack:</td>
+<td>6.482</td>
+</tr>
+<tr>
+<td class="label">Actual Width:</td>
+<td>7.857</td>
+</tr>
+<tr>
+<td class="label">Required Width:</td>
+<td>1.375</td>
+</tr>
+<tr>
+<td class="label">Type:</td>
+<td>High Pulse Width</td>
+</tr>
+<tr>
+<td class="label">Clock:</td>
+<td>clk</td>
+</tr>
+<tr>
+<td class="label"> Objects:</td>
+<td>led_status_s2</td>
+</tr>
+</table>
+<p><b>Late clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>4.230</td>
+<td>4.230</td>
+<td>tINS</td>
+<td>RR</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>4.498</td>
+<td>0.268</td>
+<td>tNET</td>
+<td>RR</td>
+<td>led_status_s2/CLK</td>
+</tr>
+</table>
+<p><b>Early clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>FF</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>12.140</td>
+<td>2.140</td>
+<td>tINS</td>
+<td>FF</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>12.355</td>
+<td>0.215</td>
+<td>tNET</td>
+<td>FF</td>
+<td>led_status_s2/CLK</td>
+</tr>
+</table>
+<h3>MPW4</h3>
+<p><b>MPW Summary:</b></p>
+<table class="summary_table">
+<tr>
+<td class="label">Slack:</td>
+<td>6.482</td>
+</tr>
+<tr>
+<td class="label">Actual Width:</td>
+<td>7.857</td>
+</tr>
+<tr>
+<td class="label">Required Width:</td>
+<td>1.375</td>
+</tr>
+<tr>
+<td class="label">Type:</td>
+<td>High Pulse Width</td>
+</tr>
+<tr>
+<td class="label">Clock:</td>
+<td>clk</td>
+</tr>
+<tr>
+<td class="label"> Objects:</td>
+<td>motor_r_in2_s2</td>
+</tr>
+</table>
+<p><b>Late clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>4.230</td>
+<td>4.230</td>
+<td>tINS</td>
+<td>RR</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>4.498</td>
+<td>0.268</td>
+<td>tNET</td>
+<td>RR</td>
+<td>motor_r_in2_s2/CLK</td>
+</tr>
+</table>
+<p><b>Early clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>FF</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>12.140</td>
+<td>2.140</td>
+<td>tINS</td>
+<td>FF</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>12.355</td>
+<td>0.215</td>
+<td>tNET</td>
+<td>FF</td>
+<td>motor_r_in2_s2/CLK</td>
+</tr>
+</table>
+<h3>MPW5</h3>
+<p><b>MPW Summary:</b></p>
+<table class="summary_table">
+<tr>
+<td class="label">Slack:</td>
+<td>6.482</td>
+</tr>
+<tr>
+<td class="label">Actual Width:</td>
+<td>7.857</td>
+</tr>
+<tr>
+<td class="label">Required Width:</td>
+<td>1.375</td>
+</tr>
+<tr>
+<td class="label">Type:</td>
+<td>High Pulse Width</td>
+</tr>
+<tr>
+<td class="label">Clock:</td>
+<td>clk</td>
+</tr>
+<tr>
+<td class="label"> Objects:</td>
+<td>motor_l_in1_s2</td>
+</tr>
+</table>
+<p><b>Late clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>0.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>4.230</td>
+<td>4.230</td>
+<td>tINS</td>
+<td>RR</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>4.498</td>
+<td>0.268</td>
+<td>tNET</td>
+<td>RR</td>
+<td>motor_l_in1_s2/CLK</td>
+</tr>
+</table>
+<p><b>Early clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>FF</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>12.140</td>
+<td>2.140</td>
+<td>tINS</td>
+<td>FF</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>12.355</td>
+<td>0.215</td>
+<td>tNET</td>
+<td>FF</td>
+<td>motor_l_in1_s2/CLK</td>
+</tr>
+</table>
+<h3>MPW6</h3>
+<p><b>MPW Summary:</b></p>
+<table class="summary_table">
+<tr>
+<td class="label">Slack:</td>
+<td>9.050</td>
+</tr>
+<tr>
+<td class="label">Actual Width:</td>
+<td>10.425</td>
+</tr>
+<tr>
+<td class="label">Required Width:</td>
+<td>1.375</td>
+</tr>
+<tr>
+<td class="label">Type:</td>
+<td>Low Pulse Width</td>
+</tr>
+<tr>
+<td class="label">Clock:</td>
+<td>clk</td>
+</tr>
+<tr>
+<td class="label"> Objects:</td>
+<td>motor_l_in1_s2</td>
+</tr>
+</table>
+<p><b>Late clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>FF</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>12.616</td>
+<td>2.616</td>
+<td>tINS</td>
+<td>FF</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>12.904</td>
+<td>0.289</td>
+<td>tNET</td>
+<td>FF</td>
+<td>motor_l_in1_s2/CLK</td>
+</tr>
+</table>
+<p><b>Early clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>23.126</td>
+<td>3.126</td>
+<td>tINS</td>
+<td>RR</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>23.329</td>
+<td>0.203</td>
+<td>tNET</td>
+<td>RR</td>
+<td>motor_l_in1_s2/CLK</td>
+</tr>
+</table>
+<h3>MPW7</h3>
+<p><b>MPW Summary:</b></p>
+<table class="summary_table">
+<tr>
+<td class="label">Slack:</td>
+<td>9.050</td>
+</tr>
+<tr>
+<td class="label">Actual Width:</td>
+<td>10.425</td>
+</tr>
+<tr>
+<td class="label">Required Width:</td>
+<td>1.375</td>
+</tr>
+<tr>
+<td class="label">Type:</td>
+<td>Low Pulse Width</td>
+</tr>
+<tr>
+<td class="label">Clock:</td>
+<td>clk</td>
+</tr>
+<tr>
+<td class="label"> Objects:</td>
+<td>motor_r_in2_s2</td>
+</tr>
+</table>
+<p><b>Late clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>FF</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>12.616</td>
+<td>2.616</td>
+<td>tINS</td>
+<td>FF</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>12.904</td>
+<td>0.289</td>
+<td>tNET</td>
+<td>FF</td>
+<td>motor_r_in2_s2/CLK</td>
+</tr>
+</table>
+<p><b>Early clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>23.126</td>
+<td>3.126</td>
+<td>tINS</td>
+<td>RR</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>23.329</td>
+<td>0.203</td>
+<td>tNET</td>
+<td>RR</td>
+<td>motor_r_in2_s2/CLK</td>
+</tr>
+</table>
+<h3>MPW8</h3>
+<p><b>MPW Summary:</b></p>
+<table class="summary_table">
+<tr>
+<td class="label">Slack:</td>
+<td>9.050</td>
+</tr>
+<tr>
+<td class="label">Actual Width:</td>
+<td>10.425</td>
+</tr>
+<tr>
+<td class="label">Required Width:</td>
+<td>1.375</td>
+</tr>
+<tr>
+<td class="label">Type:</td>
+<td>Low Pulse Width</td>
+</tr>
+<tr>
+<td class="label">Clock:</td>
+<td>clk</td>
+</tr>
+<tr>
+<td class="label"> Objects:</td>
+<td>motor_r_in1_s2</td>
+</tr>
+</table>
+<p><b>Late clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>FF</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>12.616</td>
+<td>2.616</td>
+<td>tINS</td>
+<td>FF</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>12.904</td>
+<td>0.289</td>
+<td>tNET</td>
+<td>FF</td>
+<td>motor_r_in1_s2/CLK</td>
+</tr>
+</table>
+<p><b>Early clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>23.126</td>
+<td>3.126</td>
+<td>tINS</td>
+<td>RR</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>23.329</td>
+<td>0.203</td>
+<td>tNET</td>
+<td>RR</td>
+<td>motor_r_in1_s2/CLK</td>
+</tr>
+</table>
+<h3>MPW9</h3>
+<p><b>MPW Summary:</b></p>
+<table class="summary_table">
+<tr>
+<td class="label">Slack:</td>
+<td>9.050</td>
+</tr>
+<tr>
+<td class="label">Actual Width:</td>
+<td>10.425</td>
+</tr>
+<tr>
+<td class="label">Required Width:</td>
+<td>1.375</td>
+</tr>
+<tr>
+<td class="label">Type:</td>
+<td>Low Pulse Width</td>
+</tr>
+<tr>
+<td class="label">Clock:</td>
+<td>clk</td>
+</tr>
+<tr>
+<td class="label"> Objects:</td>
+<td>motor_l_in2_s2</td>
+</tr>
+</table>
+<p><b>Late clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>FF</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>12.616</td>
+<td>2.616</td>
+<td>tINS</td>
+<td>FF</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>12.904</td>
+<td>0.289</td>
+<td>tNET</td>
+<td>FF</td>
+<td>motor_l_in2_s2/CLK</td>
+</tr>
+</table>
+<p><b>Early clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>23.126</td>
+<td>3.126</td>
+<td>tINS</td>
+<td>RR</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>23.329</td>
+<td>0.203</td>
+<td>tNET</td>
+<td>RR</td>
+<td>motor_l_in2_s2/CLK</td>
+</tr>
+</table>
+<h3>MPW10</h3>
+<p><b>MPW Summary:</b></p>
+<table class="summary_table">
+<tr>
+<td class="label">Slack:</td>
+<td>9.050</td>
+</tr>
+<tr>
+<td class="label">Actual Width:</td>
+<td>10.425</td>
+</tr>
+<tr>
+<td class="label">Required Width:</td>
+<td>1.375</td>
+</tr>
+<tr>
+<td class="label">Type:</td>
+<td>Low Pulse Width</td>
+</tr>
+<tr>
+<td class="label">Clock:</td>
+<td>clk</td>
+</tr>
+<tr>
+<td class="label"> Objects:</td>
+<td>led_status_s2</td>
+</tr>
+</table>
+<p><b>Late clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>10.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>FF</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>12.616</td>
+<td>2.616</td>
+<td>tINS</td>
+<td>FF</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>12.904</td>
+<td>0.289</td>
+<td>tNET</td>
+<td>FF</td>
+<td>led_status_s2/CLK</td>
+</tr>
+</table>
+<p><b>Early clock Path:</b></p>
+<table class="detail_table">
+<tr>
+<th class="label">AT</th>
+<th class="label">DELAY</th>
+<th class="label">TYPE</th>
+<th class="label">RF</th>
+<th>NODE</th>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>active clock edge time</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td></td>
+<td></td>
+<td>clk</td>
+</tr>
+<tr>
+<td>20.000</td>
+<td>0.000</td>
+<td>tCL</td>
+<td>RR</td>
+<td>clk_ibuf/I</td>
+</tr>
+<tr>
+<td>23.126</td>
+<td>3.126</td>
+<td>tINS</td>
+<td>RR</td>
+<td>clk_ibuf/O</td>
+</tr>
+<tr>
+<td>23.329</td>
+<td>0.203</td>
+<td>tNET</td>
+<td>RR</td>
+<td>led_status_s2/CLK</td>
+</tr>
+</table>
 <h2><a name="High_Fanout_Nets_Report">High Fanout Nets Report:</a></h2>
 <h4>Report Command:report_high_fanout_nets -max_nets 10</h4>
 <table class="detail_table">
@@ -192,15 +1485,15 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>100.00%</td>
 </tr>
 <tr>
-<td>R2C3</td>
-<td>100.00%</td>
-</tr>
-<tr>
 <td>R2C4</td>
 <td>100.00%</td>
 </tr>
 <tr>
-<td>R2C12</td>
+<td>R2C5</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>R2C13</td>
 <td>100.00%</td>
 </tr>
 <tr>
@@ -208,11 +1501,15 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>100.00%</td>
 </tr>
 <tr>
-<td>R5C6</td>
+<td>R5C5</td>
 <td>100.00%</td>
 </tr>
 <tr>
-<td>R9C16</td>
+<td>R9C11</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>R9C10</td>
 <td>100.00%</td>
 </tr>
 <tr>
@@ -221,10 +1518,6 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td>R10C18</td>
-<td>100.00%</td>
-</tr>
-<tr>
-<td>R10C17</td>
 <td>100.00%</td>
 </tr>
 </table>

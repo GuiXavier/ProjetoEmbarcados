@@ -4,27 +4,27 @@
 //Tool Version: V1.9.11.01 Education (64-bit)
 //Part Number: GW1NZ-LV1QN48C6/I5
 //Device: GW1NZ-1
-//Created Time: Mon 06 30 23:18:38 2025
+//Created Time: Tue 07 01 12:12:50 2025
 
-IO_LOC "led_status" 11;
+IO_LOC "led_status" 9;
 IO_PORT "led_status" IO_TYPE=LVCMOS18 PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
-IO_LOC "motor_l_in2" 9;
+IO_LOC "motor_l_in2" 20;
 IO_PORT "motor_l_in2" IO_TYPE=LVCMOS18 PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
-IO_LOC "motor_l_in1" 24;
+IO_LOC "motor_l_in1" 19;
 IO_PORT "motor_l_in1" IO_TYPE=LVCMOS18 PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
-IO_LOC "motor_r_in2" 46;
+IO_LOC "motor_r_in2" 34;
 IO_PORT "motor_r_in2" IO_TYPE=LVCMOS18 PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
-IO_LOC "motor_r_in1" 10;
+IO_LOC "motor_r_in1" 29;
 IO_PORT "motor_r_in1" IO_TYPE=LVCMOS18 PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
-IO_LOC "sensores_linha[4]" 23;
+IO_LOC "sensores_linha[4]" 11;
 IO_PORT "sensores_linha[4]" IO_TYPE=LVCMOS18 PULL_MODE=UP BANK_VCCIO=1.8;
-IO_LOC "sensores_linha[3]" 19;
+IO_LOC "sensores_linha[3]" 35;
 IO_PORT "sensores_linha[3]" IO_TYPE=LVCMOS18 PULL_MODE=UP BANK_VCCIO=1.8;
-IO_LOC "sensores_linha[2]" 18;
+IO_LOC "sensores_linha[2]" 16;
 IO_PORT "sensores_linha[2]" IO_TYPE=LVCMOS18 PULL_MODE=UP BANK_VCCIO=1.8;
-IO_LOC "sensores_linha[1]" 17;
+IO_LOC "sensores_linha[1]" 18;
 IO_PORT "sensores_linha[1]" IO_TYPE=LVCMOS18 PULL_MODE=UP BANK_VCCIO=1.8;
-IO_LOC "sensores_linha[0]" 16;
+IO_LOC "sensores_linha[0]" 17;
 IO_PORT "sensores_linha[0]" IO_TYPE=LVCMOS18 PULL_MODE=UP BANK_VCCIO=1.8;
 IO_LOC "clk" 47;
 IO_PORT "clk" IO_TYPE=LVCMOS18 PULL_MODE=UP BANK_VCCIO=1.8;

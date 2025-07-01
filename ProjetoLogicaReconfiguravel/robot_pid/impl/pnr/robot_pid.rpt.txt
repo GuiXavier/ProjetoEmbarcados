@@ -11,27 +11,27 @@
   <Tool Version>: V1.9.11.01 Education (64-bit)
   <Part Number>: GW1NZ-LV1QN48C6/I5
   <Device>: GW1NZ-1
-  <Created Time>:Tue Jul  1 00:07:09 2025
+  <Created Time>:Tue Jul  1 12:15:23 2025
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Placement Phase 1: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Placement Phase 2: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    Placement Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-    ERROR  (PR2028) : The constrained location is useless in current package
-    ERROR  (PR2017) : 'motor_l_in1' cannot be placed according to constraint, for the location is a dedicated pin (SSPI)
-    ERROR  (PR2028) : The constrained location is useless in current package
-    ERROR  (PR2017) : 'motor_r_in2' cannot be placed according to constraint, for the location is a dedicated pin (DONE)
-    Total Placement: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
+    Placement Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0.001s
+    Placement Phase 1: CPU time = 0h 0m 0.019s, Elapsed time = 0h 0m 0.019s
+    Placement Phase 2: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0s
+    Placement Phase 3: CPU time = 0h 0m 0.861s, Elapsed time = 0h 0m 0.861s
+    Total Placement: CPU time = 0h 0m 0.882s, Elapsed time = 0h 0m 0.881s
  Running routing:
-    ---
+    Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
+    Routing Phase 1: CPU time = 0h 0m 0.012s, Elapsed time = 0h 0m 0.012s
+    Routing Phase 2: CPU time = 0h 0m 0.012s, Elapsed time = 0h 0m 0.012s
+    Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
+    Total Routing: CPU time = 0h 0m 0.024s, Elapsed time = 0h 0m 0.024s
  Generate output files:
-    CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
+    CPU time = 0h 0m 0.185s, Elapsed time = 0h 0m 0.184s
 
- Total Time and Memory Usage: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s, Peak memory usage = 133MB
+ Total Time and Memory Usage: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s, Peak memory usage = 194MB
 
 
 3. Resource Usage Summary
@@ -44,10 +44,10 @@
     --SSRAM(RAM16)            | 0                                   | -
   Register                    | 5/957                               |  <1%
     --Logic Register as Latch | 0/864                               |  0%
-    --Logic Register as FF    | 5/864                               |  <1%
+    --Logic Register as FF    | 2/864                               |  <1%
     --I/O Register as Latch   | 0/93                                |  0%
-    --I/O Register as FF      | 0/93                                |  0%
-  CLS                         | 0/576                               |  0%
+    --I/O Register as FF      | 3/93                                |  4%
+  CLS                         | 5/576                               |  <1%
   I/O Port                    | 12/41                               |  30%
   I/O Buf                     | 12                                  | -
     --Input Buf               | 7                                   | -
@@ -62,35 +62,54 @@
   --------------------------------------
   I/O Bank  | Usage       | Utilization 
   --------------------------------------
-  bank 0   | 0/18        | 0%          
-  bank 1   | 0/23        | 0%          
+  bank 0   | 2/18        | 12%         
+  bank 1   | 10/23       | 44%         
   ======================================
 
 
 5. Clock Resource Usage Summary
 
+  ------------------------------------------
+  Clock Resource| Usage         | Utilization 
+  ------------------------------------------
+  PRIMARY       | 1/8           | 13%
+  LW            | 0/8           | 0%
+  GCLK_PIN      | 1/3           | 34%
+  ==========================================
 
 
-6. Pinout by Port Name
+6. Global Clock Signals
+
+  -------------------------------------------
+  Signal         | Global Clock   | Location
+  -------------------------------------------
+  clk_d          | PRIMARY        |  RIGHT
+  ===========================================
+
+
+7. Pinout by Port Name
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Port Name          | Diff Pair | Loc./Bank     | Constraint | Dir.  | Site     | CFG             | IO Type    | Drive | Pull Mode | PCI Clamp | Hysteresis | Open Drain | BankVccio 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 clk                | -         | 47/0          | Y          | in    | IOT10[A] | GCLKT_0         | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
-sensores_linha[0]  | -         | 16/1          | Y          | in    | IOR6[F]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
-sensores_linha[1]  | -         | 17/1          | Y          | in    | IOR6[G]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
-sensores_linha[2]  | -         | 18/1          | Y          | in    | IOR6[H]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
-sensores_linha[3]  | -         | 19/1          | Y          | in    | IOR6[J]  | DOUT/WE_N       | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
-sensores_linha[4]  | -         | 23/1          | Y          | in    | IOR8[B]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
-motor_r_in1        | -         | 10/1          | Y          | out   | IOR2[B]  | -               | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | 1.8       
-motor_l_in2        | -         | 9/1           | Y          | out   | IOR2[A]  | -               | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | 1.8       
-led_status         | -         | 11/1          | Y          | out   | IOR3[A]  | -               | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | 1.8       
+reset              | -         | 10/1          | N          | in    | IOR2[B]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
+sensores_linha[0]  | -         | 17/1          | Y          | in    | IOR6[G]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
+sensores_linha[1]  | -         | 18/1          | Y          | in    | IOR6[H]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
+sensores_linha[2]  | -         | 16/1          | Y          | in    | IOR6[F]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
+sensores_linha[3]  | -         | 35/0          | Y          | in    | IOT17[B] | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
+sensores_linha[4]  | -         | 11/1          | Y          | in    | IOR3[A]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
+motor_r_in1        | -         | 29/1          | Y          | out   | IOR6[E]  | FASTRD_N/D3     | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | 1.8       
+motor_r_in2        | -         | 34/1          | Y          | out   | IOR3[B]  | -               | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | 1.8       
+motor_l_in1        | -         | 19/1          | Y          | out   | IOR6[J]  | DOUT/WE_N       | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | 1.8       
+motor_l_in2        | -         | 20/1          | Y          | out   | IOR10[A] | -               | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | 1.8       
+led_status         | -         | 9/1           | Y          | out   | IOR2[A]  | -               | LVCMOS18   | 8     | UP        | NA        | NA         | OFF        | 1.8       
 ===========================================================================================================================================================================
 
 
 
 
-7. All Package Pins
+8. All Package Pins
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 Loc./Bank| Signal             | Dir.  | Site     | CFG             | IO Type  | Drive | Pull Mode | PCI Clamp | Hysteresis | Open Drain | Bank Vccio
@@ -112,32 +131,32 @@ Loc./Bank| Signal             | Dir.  | Site     | CFG             | IO Type  | 
 40/0     | -                  | in    | IOT16[A] | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
 39/0     | -                  | in    | IOT16[B] | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
 38/0     | -                  | in    | IOT17[A] | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
-35/0     | -                  | in    | IOT17[B] | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
+35/0     | sensores_linha[3]  | in    | IOT17[B] | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
 ------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------
-9/1      | motor_l_in2        | out   | IOR2[A]  | -               | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | 1.8  
-10/1     | motor_r_in1        | out   | IOR2[B]  | -               | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | 1.8  
-11/1     | led_status         | out   | IOR3[A]  | -               | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | 1.8  
-34/1     | -                  | in    | IOR3[B]  | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
+9/1      | led_status         | out   | IOR2[A]  | -               | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | 1.8  
+10/1     | reset              | in    | IOR2[B]  | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
+11/1     | sensores_linha[4]  | in    | IOR3[A]  | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
+34/1     | motor_r_in2        | out   | IOR3[B]  | -               | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | 1.8  
 33/1     | -                  | in    | IOR5[A]  | GCLKT_2/RPLL_T_in | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
 32/1     | -                  | in    | IOR5[B]  | GCLKC_2/RPLL_C_in | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
 31/1     | -                  | in    | IOR6[A]  | MI/D7           | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
 14/1     | -                  | in    | IOR6[B]  | MO/D6           | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
 30/1     | -                  | in    | IOR6[C]  | MCS_N/D5        | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
 15/1     | -                  | in    | IOR6[D]  | MCLK/D4         | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
-29/1     | -                  | in    | IOR6[E]  | FASTRD_N/D3     | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
-16/1     | sensores_linha[0]  | in    | IOR6[F]  | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
-17/1     | sensores_linha[1]  | in    | IOR6[G]  | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
-18/1     | sensores_linha[2]  | in    | IOR6[H]  | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
+29/1     | motor_r_in1        | out   | IOR6[E]  | FASTRD_N/D3     | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | 1.8  
+16/1     | sensores_linha[2]  | in    | IOR6[F]  | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
+17/1     | sensores_linha[0]  | in    | IOR6[G]  | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
+18/1     | sensores_linha[1]  | in    | IOR6[H]  | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
 28/1     | -                  | in    | IOR6[I]  | DIN/CLKHOLD_N   | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
-19/1     | sensores_linha[3]  | in    | IOR6[J]  | DOUT/WE_N       | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
+19/1     | motor_l_in1        | out   | IOR6[J]  | DOUT/WE_N       | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | 1.8  
 27/1     | -                  | in    | IOR7[A]  | GCLKT_3/SSPI_CS_N/D0 | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
 21/1     | -                  | in    | IOR7[B]  | GCLKC_3         | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
 24/1     | -                  | in    | IOR8[A]  | SO/D1           | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
-23/1     | sensores_linha[4]  | in    | IOR8[B]  | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
+23/1     | -                  | in    | IOR8[B]  | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
 22/1     | -                  | in    | IOR9[A]  | SI/D2           | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
-20/1     | -                  | in    | IOR10[A] | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
+20/1     | motor_l_in2        | out   | IOR10[A] | -               | LVCMOS18 | 8     | UP        | NA        | NA         | OFF        | 1.8  
 13/1     | -                  | in    | IOR10[B] | -               | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | 1.8  
 ------------------------------------------------------------------------------------------------------------------------------------------------
 ================================================================================================================================================
