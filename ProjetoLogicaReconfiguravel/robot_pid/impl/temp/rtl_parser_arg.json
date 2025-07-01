@@ -27,7 +27,7 @@
  ],
  "LoopLimit" : 2000,
  "ResultFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/impl/temp/rtl_parser.result",
- "Top" : "seguidor_linha_simples",
+ "Top" : "seguidor_linha_sincrono",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"
 }

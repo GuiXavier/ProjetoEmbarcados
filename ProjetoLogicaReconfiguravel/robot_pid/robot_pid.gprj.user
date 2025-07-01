@@ -4,14 +4,15 @@
     <Version>1.0</Version>
     <FlowState>
         <Process ID="Synthesis" State="2"/>
-        <Process ID="Pnr" State="4"/>
-        <Process ID="Gao" State="4"/>
+        <Process ID="Pnr" State="3"/>
+        <Process ID="Gao" State="2"/>
         <Process ID="Rtl_Gao" State="2"/>
         <Process ID="Gvio" State="0"/>
-        <Process ID="Place" State="3"/>
+        <Process ID="Place" State="2"/>
     </FlowState>
     <ResultFileList>
         <ResultFile ResultFileType="RES.netlist" ResultFilePath="impl/gwsynthesis/robot_pid.vg"/>
+        <ResultFile ResultFileType="RES.pnr.posp.bin" ResultFilePath="impl/pnr/robot_pid.db"/>
         <ResultFile ResultFileType="RES.syn.report" ResultFilePath="impl/gwsynthesis/robot_pid_syn.rpt.html"/>
         <ResultFile ResultFileType="RES.syn.resource" ResultFilePath="impl/gwsynthesis/robot_pid_syn_rsc.xml"/>
     </ResultFileList>
