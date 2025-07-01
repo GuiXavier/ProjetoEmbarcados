@@ -4,17 +4,17 @@
 //Tool Version: V1.9.11.01 Education (64-bit)
 //Part Number: GW1NZ-LV1QN48C6/I5
 //Device: GW1NZ-1
-//Created Time: Mon 06 30 18:38:51 2025
+//Created Time: Mon 06 30 23:18:38 2025
 
 IO_LOC "led_status" 11;
 IO_PORT "led_status" IO_TYPE=LVCMOS18 PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
-IO_LOC "motor_l_in2" 8;
+IO_LOC "motor_l_in2" 9;
 IO_PORT "motor_l_in2" IO_TYPE=LVCMOS18 PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
-IO_LOC "motor_l_in1" 19;
+IO_LOC "motor_l_in1" 24;
 IO_PORT "motor_l_in1" IO_TYPE=LVCMOS18 PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
 IO_LOC "motor_r_in2" 46;
 IO_PORT "motor_r_in2" IO_TYPE=LVCMOS18 PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
-IO_LOC "motor_r_in1" 29;
+IO_LOC "motor_r_in1" 10;
 IO_PORT "motor_r_in1" IO_TYPE=LVCMOS18 PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;
 IO_LOC "sensores_linha[4]" 23;
 IO_PORT "sensores_linha[4]" IO_TYPE=LVCMOS18 PULL_MODE=UP BANK_VCCIO=1.8;

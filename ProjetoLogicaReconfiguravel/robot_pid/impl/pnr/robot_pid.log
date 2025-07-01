@@ -5,15 +5,11 @@ Reading constraint file: "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\Projet
 Physical Constraint parsed completed
 Running placement......
 ERROR  (PR2028) : The constrained location is useless in current package
-ERROR  (PR2017) : 'motor_r_in2' cannot be placed according to constraint, for the location is a dedicated pin (MSPI)
+ERROR  (PR2017) : 'motor_l_in1' cannot be placed according to constraint, for the location is a dedicated pin (SSPI)
 ERROR  (PR2028) : The constrained location is useless in current package
-ERROR  (PR2017) : 'motor_r_in1' cannot be placed according to constraint, for the location is a dedicated pin (MSPI)
-ERROR  (PR2028) : The constrained location is useless in current package
-ERROR  (PR2017) : 'sensores_linha[4]' cannot be placed according to constraint, for the location is a dedicated pin (MSPI)
-ERROR  (PR2028) : The constrained location is useless in current package
-ERROR  (PR2017) : 'sensores_linha[0]' cannot be placed according to constraint, for the location is a dedicated pin (SSPI)
+ERROR  (PR2017) : 'motor_r_in2' cannot be placed according to constraint, for the location is a dedicated pin (DONE)
 Generate file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\pnr\robot_pid.pin.html" completed
 Generate file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\pnr\robot_pid.rpt.html" completed
 Generate file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\pnr\robot_pid.rpt.txt" completed
-Mon Jun 30 18:35:38 2025
+Mon Jun 30 23:54:02 2025
 

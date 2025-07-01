@@ -79,7 +79,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Mon Jun 30 18:35:38 2025
+<td>Mon Jun 30 23:54:02 2025
 </td>
 </tr>
 <tr>
@@ -98,13 +98,9 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
    Placement Phase 2: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
    Placement Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
    ERROR  (PR2028) : The constrained location is useless in current package
-   ERROR  (PR2017) : 'motor_r_in2' cannot be placed according to constraint, for the location is a dedicated pin (MSPI)
+   ERROR  (PR2017) : 'motor_l_in1' cannot be placed according to constraint, for the location is a dedicated pin (SSPI)
    ERROR  (PR2028) : The constrained location is useless in current package
-   ERROR  (PR2017) : 'motor_r_in1' cannot be placed according to constraint, for the location is a dedicated pin (MSPI)
-   ERROR  (PR2028) : The constrained location is useless in current package
-   ERROR  (PR2017) : 'sensores_linha[4]' cannot be placed according to constraint, for the location is a dedicated pin (MSPI)
-   ERROR  (PR2028) : The constrained location is useless in current package
-   ERROR  (PR2017) : 'sensores_linha[0]' cannot be placed according to constraint, for the location is a dedicated pin (SSPI)
+   ERROR  (PR2017) : 'motor_r_in2' cannot be placed according to constraint, for the location is a dedicated pin (DONE)
    Total Placement: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
 Running routing:
    ---
@@ -114,7 +110,7 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">Total Time and Memory Usage</td>
-<td>CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s, Peak memory usage = 157MB</td>
+<td>CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s, Peak memory usage = 193MB</td>
 </tr>
 </table>
 <br/>
@@ -249,39 +245,7 @@ Generate output files:
 <td>1.8</td>
 </tr>
 <tr>
-<td class="label">sensores_linha[1]</td>
-<td>-</td>
-<td>18/1</td>
-<td>Y</td>
-<td>in</td>
-<td>IOR6[H]</td>
-<td>-</td>
-<td>LVCMOS18</td>
-<td>NA</td>
-<td>UP</td>
-<td>ON</td>
-<td>NONE</td>
-<td>NA</td>
-<td>1.8</td>
-</tr>
-<tr>
-<td class="label">sensores_linha[2]</td>
-<td>-</td>
-<td>17/1</td>
-<td>Y</td>
-<td>in</td>
-<td>IOR6[G]</td>
-<td>-</td>
-<td>LVCMOS18</td>
-<td>NA</td>
-<td>UP</td>
-<td>ON</td>
-<td>NONE</td>
-<td>NA</td>
-<td>1.8</td>
-</tr>
-<tr>
-<td class="label">sensores_linha[3]</td>
+<td class="label">sensores_linha[0]</td>
 <td>-</td>
 <td>16/1</td>
 <td>Y</td>
@@ -297,13 +261,77 @@ Generate output files:
 <td>1.8</td>
 </tr>
 <tr>
-<td class="label">motor_l_in1</td>
+<td class="label">sensores_linha[1]</td>
+<td>-</td>
+<td>17/1</td>
+<td>Y</td>
+<td>in</td>
+<td>IOR6[G]</td>
+<td>-</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>ON</td>
+<td>NONE</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">sensores_linha[2]</td>
+<td>-</td>
+<td>18/1</td>
+<td>Y</td>
+<td>in</td>
+<td>IOR6[H]</td>
+<td>-</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>ON</td>
+<td>NONE</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">sensores_linha[3]</td>
 <td>-</td>
 <td>19/1</td>
 <td>Y</td>
-<td>out</td>
+<td>in</td>
 <td>IOR6[J]</td>
 <td>DOUT/WE_N</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>ON</td>
+<td>NONE</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">sensores_linha[4]</td>
+<td>-</td>
+<td>23/1</td>
+<td>Y</td>
+<td>in</td>
+<td>IOR8[B]</td>
+<td>-</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>ON</td>
+<td>NONE</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">motor_r_in1</td>
+<td>-</td>
+<td>10/1</td>
+<td>Y</td>
+<td>out</td>
+<td>IOR2[B]</td>
+<td>-</td>
 <td>LVCMOS18</td>
 <td>8</td>
 <td>UP</td>
@@ -315,11 +343,11 @@ Generate output files:
 <tr>
 <td class="label">motor_l_in2</td>
 <td>-</td>
-<td>29/1</td>
+<td>9/1</td>
 <td>Y</td>
 <td>out</td>
-<td>IOR6[E]</td>
-<td>FASTRD_N/D3</td>
+<td>IOR2[A]</td>
+<td>-</td>
 <td>LVCMOS18</td>
 <td>8</td>
 <td>UP</td>
@@ -616,30 +644,30 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">9/1</td>
-<td>-</td>
-<td>in</td>
+<td>motor_l_in2</td>
+<td>out</td>
 <td>IOR2[A]</td>
 <td>-</td>
 <td>LVCMOS18</td>
-<td>NA</td>
+<td>8</td>
 <td>UP</td>
-<td>ON</td>
-<td>NONE</td>
 <td>NA</td>
+<td>NA</td>
+<td>OFF</td>
 <td>1.8</td>
 </tr>
 <tr>
 <td class="label">10/1</td>
-<td>-</td>
-<td>in</td>
+<td>motor_r_in1</td>
+<td>out</td>
 <td>IOR2[B]</td>
 <td>-</td>
 <td>LVCMOS18</td>
-<td>NA</td>
+<td>8</td>
 <td>UP</td>
-<td>ON</td>
-<td>NONE</td>
 <td>NA</td>
+<td>NA</td>
+<td>OFF</td>
 <td>1.8</td>
 </tr>
 <tr>
@@ -756,21 +784,21 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">29/1</td>
-<td>motor_l_in2</td>
-<td>out</td>
+<td>-</td>
+<td>in</td>
 <td>IOR6[E]</td>
 <td>FASTRD_N/D3</td>
 <td>LVCMOS18</td>
-<td>8</td>
+<td>NA</td>
 <td>UP</td>
+<td>ON</td>
+<td>NONE</td>
 <td>NA</td>
-<td>NA</td>
-<td>OFF</td>
 <td>1.8</td>
 </tr>
 <tr>
 <td class="label">16/1</td>
-<td>sensores_linha[3]</td>
+<td>sensores_linha[0]</td>
 <td>in</td>
 <td>IOR6[F]</td>
 <td>-</td>
@@ -784,7 +812,7 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">17/1</td>
-<td>sensores_linha[2]</td>
+<td>sensores_linha[1]</td>
 <td>in</td>
 <td>IOR6[G]</td>
 <td>-</td>
@@ -798,7 +826,7 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">18/1</td>
-<td>sensores_linha[1]</td>
+<td>sensores_linha[2]</td>
 <td>in</td>
 <td>IOR6[H]</td>
 <td>-</td>
@@ -826,16 +854,16 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">19/1</td>
-<td>motor_l_in1</td>
-<td>out</td>
+<td>sensores_linha[3]</td>
+<td>in</td>
 <td>IOR6[J]</td>
 <td>DOUT/WE_N</td>
 <td>LVCMOS18</td>
-<td>8</td>
+<td>NA</td>
 <td>UP</td>
+<td>ON</td>
+<td>NONE</td>
 <td>NA</td>
-<td>NA</td>
-<td>OFF</td>
 <td>1.8</td>
 </tr>
 <tr>
@@ -882,7 +910,7 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">23/1</td>
-<td>-</td>
+<td>sensores_linha[4]</td>
 <td>in</td>
 <td>IOR8[B]</td>
 <td>-</td>
