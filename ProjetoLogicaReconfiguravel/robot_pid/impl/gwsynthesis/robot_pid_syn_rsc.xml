@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<Module name="teste_motores_frente" Register="1" T_Register="1(1)"/>
-=======
-<Module name="seguindodef" Register="5" Lut="4" T_Register="5(5)" T_Lut="4(4)"/>
->>>>>>> 048889f5de1ecfcdabbe3d1695ea52667f376d18
+<Module name="seguidordef" Register="5" Lut="12" T_Register="13(5)" T_Alu="11(0)" T_Lut="13(12)">
+ <SubModule name="pwm_left" Register="8" Alu="4" T_Register="8(8)" T_Alu="4(4)"/>
+ <SubModule name="pwm_right" Alu="7" Lut="1" T_Alu="7(7)" T_Lut="1(1)"/>
+</Module>

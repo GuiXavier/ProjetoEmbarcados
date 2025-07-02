@@ -13,16 +13,12 @@
   },
   {
    "Library" : "work",
-<<<<<<< HEAD
-   "Path" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/robotCodigoDef.vhd",
-=======
    "Path" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/pwm_generator.vhd",
->>>>>>> 048889f5de1ecfcdabbe3d1695ea52667f376d18
    "Type" : "vhdl"
   },
   {
    "Library" : "work",
-   "Path" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/teste.vhd",
+   "Path" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/robotCodigoDef.vhd",
    "Type" : "vhdl"
   },
   {
@@ -36,7 +32,7 @@
  ],
  "LoopLimit" : 2000,
  "ResultFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/impl/temp/rtl_parser.result",
- "Top" : "",
+ "Top" : "seguidordef",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"
 }
