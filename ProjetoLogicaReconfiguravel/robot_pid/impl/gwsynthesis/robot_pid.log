@@ -13,12 +13,14 @@ Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogi
 Analyzing entity 'seguidor_linha_sincrono'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd":4)
 Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd":27)
 Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd'
-Analyzing entity 'seguindodef'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":4)
-Analyzing architecture 'adk'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":27)
-Processing 'seguindodef(adk)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":4)
-NOTE  (EX0101) : Current top module is "seguindodef"
+Analyzing entity 'seguidordef'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":5)
+Analyzing architecture 'rteel'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":22)
+Processing 'seguidordef(rteel)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":5)
+Processing 'pwm_generator(rtl)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\pwm_generator.vhd":6)
+NOTE  (EX0101) : Current top module is "seguidordef"
 [5%] Running netlist conversion ...
 Running device independent optimization ...
+WARN  (DI0019) : Merging user defined instance "pwm_right/counter[7:0]" to instance "pwm_left/counter[7:0]", because they are equivalent. If you want to keep the instance, please apply property constraint syn_preserve = 1 on it("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\pwm_generator.vhd":26)
 [10%] Optimizing Phase 0 completed
 [15%] Optimizing Phase 1 completed
 [25%] Optimizing Phase 2 completed
