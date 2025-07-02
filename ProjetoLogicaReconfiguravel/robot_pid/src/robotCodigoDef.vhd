@@ -10,6 +10,9 @@ entity seguidor_linha_sincrono is
         -- Entrada dos 5 sensores de linha
         sensores_linha : in  std_logic_vector(4 downto 0);
 
+        -- Entrada dos 3 sensores de linha
+        --sensores_linha : in std_logic_vector(2 downto 0);             -- desabilitar para quando for fazer com apenas 3 sensores
+
         -- Saídas para a Ponte H L298N
         motor_r_in1    : out std_logic;
         motor_r_in2    : out std_logic;
@@ -34,6 +37,7 @@ begin
             motor_r_in1 <= '0';
             motor_r_in2 <= '0';
             led_status  <= '0';
+
         elsif rising_edge(clk) then
             -- A lógica de controle só é executada na borda de subida do clock
             led_status <= '1'; -- Liga o LED para indicar funcionamento normal
@@ -57,6 +61,22 @@ begin
                 when others => -- Perdido
                     motor_l_in1 <= '0'; motor_l_in2 <= '0';
                     motor_r_in1 <= '0'; motor_r_in2 <= '0';
+
+            --case sensores_lina is  -- Nessa condição talvez da para colocar o PID
+            --        when "010" => 
+            --            motor_l_in1 <= '1'; motor_l_in2 <= '0';
+            --            motor_r_in1 <= '1'; motor_r_in2 <= '0';
+            --        when "100" =>
+            --            motor_l_in1 <= '1'; motor_l_in2 <= '0';
+            --           motor_r_in1 <= '0'; motor_r_in2 <= '1';
+            --        when "001" => 
+            --            motor_l_in1 <= '0'; motor_l_in2 <= '1';
+            --            motor_r_in1 <= '1'; motor_r_in2 <= '0';
+            --        when others => 
+            --            motor_l_in1 <= '0'; motor_l_in2 <= '0';
+            --            motor_r_in1 <= '0'; motor_r_in2 <= '0';                     
+            --end case;
+
             end case;
         end if;
     end process;
