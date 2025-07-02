@@ -5,6 +5,12 @@ reset
 led_status              ----> Pino LVCMOS18(9)
 
 
+ponte H
+IN1 ----> do motor da esquerda vai pra trás (sentido roda boba)  
+IN2 ----> do motor da esquerda vai pra frente (sentido sensor)
+IN3 ----> do motor da direita vai pra trás (sentido roda boba)	 
+IN4 ----> do motor da direita vai pra frente (sentido sensor)
+
 motor_r_1n2		----> Pino IOR6E (34)
 motor_r_1n1		----> Pino IOR6C (29)
 motor_l_1n1		----> Pino IOR6J (19)
@@ -16,6 +22,7 @@ sensores_linhas[1]                 ----> Pino LVCMOS18 (35)
 sensores_linhas[2]                 ----> Pino LVCMOS18 (16)
 sensores_linhas[3]                 ----> Pino LVCMOS18 (18)
 sensores_linhas[4]                 ----> Pino LVCMOS18 (17)
+
 
 
 

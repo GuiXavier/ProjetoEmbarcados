@@ -6,6 +6,7 @@ entity seguidordef is
     port (
         -- Entradas principais
         clk            : in  std_logic;
+
         reset          : in  std_logic;
         
         -- Entrada dos 3 sensores de linha (S1, S2, S3)
@@ -19,7 +20,9 @@ entity seguidordef is
     );
 end entity;
 
-architecture rteel of seguidordef is
+
+
+architecture eriteeli of seguidordef is
     -- === CONSTANTES DE VELOCIDADE (AJUSTE AQUI!) ===
     constant VEL_MAXIMA : unsigned(7 downto 0) := to_unsigned(220, 8);
     constant VEL_CURVA  : unsigned(7 downto 0) := to_unsigned(150, 8);
@@ -59,7 +62,7 @@ begin
             -- Lógica para 3 sensores (Esquerda, Centro, Direita)
             case sensores_linha is
                 -- Linha no centro -> Frente
-                when "010" =>
+                    when "010" | "111" =>
                     l_frente <= '1'; l_re <= '0'; r_frente <= '1'; r_re <= '0';
                     duty_cycle_l <= VEL_MAXIMA; duty_cycle_r <= VEL_MAXIMA;
 

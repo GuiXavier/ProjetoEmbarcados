@@ -3,7 +3,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 -- A entidade foi simplificada, removendo a entrada dos sensores que não é mais necessária.
-entity robot is
+entity teste_motores_frente is
     port (
         -- Entradas principais
         clk         : in  std_logic;
@@ -13,7 +13,6 @@ entity robot is
         -- Motor Esquerdo (conectado em OUT1/OUT2 da Ponte H)
         motor_l_in1 : out std_logic; -- Conectado ao IN1 da Ponte H (Pino 34 da FPGA)
         motor_l_in2 : out std_logic; -- Conectado ao IN2 da Ponte H (Pino 29 da FPGA)
-
         
         -- Motor Direito (conectado em OUT4/OUT3 da Ponte H)
         motor_r_in1 : out std_logic; -- Conectado ao IN3 da Ponte H (Pino 20 da FPGA)
@@ -24,7 +23,7 @@ entity robot is
     );
 end entity;
 
-architecture rtl of robot is
+architecture rtl of teste_motores_frente is
 begin
 
     -- Processo Principal SÍNCRONO: A lógica depende do clock e do reset.
