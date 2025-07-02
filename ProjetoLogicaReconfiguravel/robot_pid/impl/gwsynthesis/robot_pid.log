@@ -6,6 +6,7 @@ Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\Pr
 Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\blink.vhd'
 Analyzing entity 'blink'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\blink.vhd":4)
 Analyzing architecture 'main'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\blink.vhd":14)
+<<<<<<< HEAD
 Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd'
 Analyzing entity 'seguidor_linha_simples'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd":4)
 Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd":23)
@@ -14,6 +15,19 @@ Analyzing entity 'teste_motores_frente'("C:\Users\Yan\Documents\GitHub\ProjetoEm
 Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\teste.vhd":26)
 Processing 'teste_motores_frente(rtl)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\teste.vhd":6)
 NOTE  (EX0101) : Current top module is "teste_motores_frente"
+=======
+Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\pwm_generator.vhd'
+Analyzing entity 'pwm_generator'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\pwm_generator.vhd":6)
+Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\pwm_generator.vhd":15)
+Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd'
+Analyzing entity 'seguidor_linha_sincrono'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd":4)
+Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd":27)
+Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd'
+Analyzing entity 'seguindodef'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":4)
+Analyzing architecture 'adk'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":27)
+Processing 'seguindodef(adk)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":4)
+NOTE  (EX0101) : Current top module is "seguindodef"
+>>>>>>> 048889f5de1ecfcdabbe3d1695ea52667f376d18
 [5%] Running netlist conversion ...
 Running device independent optimization ...
 [10%] Optimizing Phase 0 completed

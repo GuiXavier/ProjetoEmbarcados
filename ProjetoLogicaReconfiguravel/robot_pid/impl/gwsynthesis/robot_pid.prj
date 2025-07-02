@@ -6,8 +6,14 @@
     <FileList>
         <File path="C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd" type="vhdl"/>
         <File path="C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\blink.vhd" type="vhdl"/>
+<<<<<<< HEAD
         <File path="C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd" type="vhdl"/>
         <File path="C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\teste.vhd" type="vhdl"/>
+=======
+        <File path="C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\pwm_generator.vhd" type="vhdl"/>
+        <File path="C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd" type="vhdl"/>
+        <File path="C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd" type="vhdl"/>
+>>>>>>> 048889f5de1ecfcdabbe3d1695ea52667f376d18
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>

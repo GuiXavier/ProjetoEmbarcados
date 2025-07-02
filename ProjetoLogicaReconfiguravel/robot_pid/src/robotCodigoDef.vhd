@@ -1,66 +1,84 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity seguidor_linha_simples is
+entity seguidor_linha_sincrono is
     port (
         -- Entradas principais
-        clk            : in  std_logic; -- Clock principal (27MHz da placa)
+        clk            : in  std_logic;
+        reset          : in  std_logic; -- Pino de reset (importante para inicialização)
         
-        -- Entrada do módulo de 5 sensores de linha
-        sensores_linha : in  std_logic_vector(4 downto 0); -- S1 a S5
+        -- Entrada dos 5 sensores de linha
+        sensores_linha : in  std_logic_vector(4 downto 0);
+
+        -- Entrada dos 3 sensores de linha
+        --sensores_linha : in std_logic_vector(2 downto 0);             -- desabilitar para quando for fazer com apenas 3 sensores
 
         -- Saídas para a Ponte H L298N
-        motor_r_in1    : out std_logic; -- Controla motor direito via IN3
-        motor_r_in2    : out std_logic; -- Controla motor direito via IN4
-        motor_l_in1    : out std_logic; -- Controla motor esquerdo via IN1
-        motor_l_in2    : out std_logic; -- Controla motor esquerdo via IN2
+        motor_r_in1    : out std_logic;
+        motor_r_in2    : out std_logic;
+        motor_l_in1    : out std_logic;
+        motor_l_in2    : out std_logic;
         
-        -- Saída para LED de status (LED onboard da Tang Nano)
+        -- Saída para LED de status
         led_status     : out std_logic
     );
 end entity;
 
-architecture rtl of seguidor_linha_simples is
+architecture rtl of seguidor_linha_sincrono is
 begin
 
-    -- Processo Principal: Lógica de controle dos motores
-    process(sensores_linha)
+    -- Processo Principal SÍNCRONO: A lógica agora depende do clock e do reset.
+    process(clk, reset)
     begin
-        -- Lógica para seguir a linha preta (Assunção: '1' = Preto, '0' = Branco)
-        case sensores_linha is
-            -- Perfeitamente na linha -> Frente
-            when "00100" => 
-                motor_l_in1 <= '1'; motor_l_in2 <= '0';
-                motor_r_in1 <= '1'; motor_r_in2 <= '0';
+        if reset = '1' then
+            -- Estado inicial seguro quando o reset é ativado
+            motor_l_in1 <= '0';
+            motor_l_in2 <= '0';
+            motor_r_in1 <= '0';
+            motor_r_in2 <= '0';
+            led_status  <= '0';
 
-            -- Leve desvio para a direita (robô foi para a esquerda) -> Virar suave à direita
-            when "01100" | "01000" => 
-                motor_l_in1 <= '1'; motor_l_in2 <= '0'; -- Motor Esquerdo: Frente
-                motor_r_in1 <= '0'; motor_r_in2 <= '0'; -- Motor Direito: Parado
+        elsif rising_edge(clk) then
+            -- A lógica de controle só é executada na borda de subida do clock
+            led_status <= '1'; -- Liga o LED para indicar funcionamento normal
 
-            -- Leve desvio para a esquerda (robô foi para a direita) -> Virar suave à esquerda
-            when "00110" | "00010" => 
-                motor_l_in1 <= '0'; motor_l_in2 <= '0'; -- Motor Esquerdo: Parado
-                motor_r_in1 <= '1'; motor_r_in2 <= '0'; -- Motor Direito: Frente
+            case sensores_linha is
+                when "00100" => -- Frente
+                    motor_l_in1 <= '1'; motor_l_in2 <= '0';
+                    motor_r_in1 <= '1'; motor_r_in2 <= '0';
+                when "01100" | "01000" => -- Virar Direita Suave
+                    motor_l_in1 <= '1'; motor_l_in2 <= '0';
+                    motor_r_in1 <= '0'; motor_r_in2 <= '0';
+                when "00110" | "00010" => -- Virar Esquerda Suave
+                    motor_l_in1 <= '0'; motor_l_in2 <= '0';
+                    motor_r_in1 <= '1'; motor_r_in2 <= '0';
+                when "11000" | "10000" => -- Virar Direita Brusco
+                    motor_l_in1 <= '1'; motor_l_in2 <= '0';
+                    motor_r_in1 <= '0'; motor_r_in2 <= '1';
+                when "00011" | "00001" => -- Virar Esquerda Brusco
+                    motor_l_in1 <= '0'; motor_l_in2 <= '1';
+                    motor_r_in1 <= '1'; motor_r_in2 <= '0';
+                when others => -- Perdido
+                    motor_l_in1 <= '0'; motor_l_in2 <= '0';
+                    motor_r_in1 <= '0'; motor_r_in2 <= '0';
 
-            -- Desvio acentuado para a direita -> Virar rápido à direita
-            when "11000" | "10000" => 
-                motor_l_in1 <= '1'; motor_l_in2 <= '0'; -- Motor Esquerdo: Frente
-                motor_r_in1 <= '0'; motor_r_in2 <= '1'; -- Motor Direito: Ré
+            --case sensores_lina is  -- Nessa condição talvez da para colocar o PID
+            --        when "010" => 
+            --            motor_l_in1 <= '1'; motor_l_in2 <= '0';
+            --            motor_r_in1 <= '1'; motor_r_in2 <= '0';
+            --        when "100" =>
+            --            motor_l_in1 <= '1'; motor_l_in2 <= '0';
+            --           motor_r_in1 <= '0'; motor_r_in2 <= '1';
+            --        when "001" => 
+            --            motor_l_in1 <= '0'; motor_l_in2 <= '1';
+            --            motor_r_in1 <= '1'; motor_r_in2 <= '0';
+            --        when others => 
+            --            motor_l_in1 <= '0'; motor_l_in2 <= '0';
+            --            motor_r_in1 <= '0'; motor_r_in2 <= '0';                     
+            --end case;
 
-            -- Desvio acentuado para a esquerda -> Virar rápido à esquerda
-            when "00011" | "00001" => 
-                motor_l_in1 <= '0'; motor_l_in2 <= '1'; -- Motor Esquerdo: Ré
-                motor_r_in1 <= '1'; motor_r_in2 <= '0'; -- Motor Direito: Frente
-
-            -- Linha perdida (todos brancos "00000") ou cruzamento (todos pretos "11111") -> Parar
-            when others =>
-                motor_l_in1 <= '0'; motor_l_in2 <= '0'; -- Parado
-                motor_r_in1 <= '0'; motor_r_in2 <= '0'; -- Parado
-        end case;
+            end case;
+        end if;
     end process;
-    
-    -- O LED de status fica sempre aceso para indicar que a placa está ligada e o código rodando.
-    led_status <= '1';
 
 end architecture;
