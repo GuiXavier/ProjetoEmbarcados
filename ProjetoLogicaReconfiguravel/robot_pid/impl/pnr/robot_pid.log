@@ -2,19 +2,6 @@ Reading netlist file: "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLo
 Parsing netlist file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\gwsynthesis\robot_pid.vg" completed
 Processing netlist completed
 Reading constraint file: "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst"
-<<<<<<< HEAD
-ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":19 | Can't find object named 'sensores_linha[4]'
-ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":20 | Can't find object named 'sensores_linha[4]'
-ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":21 | Can't find object named 'sensores_linha[3]'
-ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":22 | Can't find object named 'sensores_linha[3]'
-ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":23 | Can't find object named 'sensores_linha[2]'
-ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":24 | Can't find object named 'sensores_linha[2]'
-ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":25 | Can't find object named 'sensores_linha[1]'
-ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":26 | Can't find object named 'sensores_linha[1]'
-ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":27 | Can't find object named 'sensores_linha[0]'
-ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":28 | Can't find object named 'sensores_linha[0]'
-Physical Constraint parsed completed with errors
-=======
 Physical Constraint parsed completed
 Running placement......
 [10%] Placement Phase 0 completed
@@ -39,6 +26,5 @@ Generate file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReco
 Generate file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\pnr\robot_pid.rpt.html" completed
 Generate file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\pnr\robot_pid.rpt.txt" completed
 Generate file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\pnr\robot_pid.tr.html" completed
-Tue Jul  1 12:15:23 2025
+Wed Jul  2 11:21:29 2025
 
->>>>>>> 048889f5de1ecfcdabbe3d1695ea52667f376d18
