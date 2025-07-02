@@ -16,6 +16,14 @@
   "ModuleName" : "blink"
  },
  {
+  "InstFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/pwm_generator.vhd",
+  "InstLine" : 6,
+  "InstName" : "pwm_generator",
+  "ModuleFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/pwm_generator.vhd",
+  "ModuleLine" : 6,
+  "ModuleName" : "pwm_generator"
+ },
+ {
   "InstFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/robotCodigoDef.vhd",
   "InstLine" : 4,
   "InstName" : "seguidor_linha_sincrono",
@@ -24,11 +32,11 @@
   "ModuleName" : "seguidor_linha_sincrono"
  },
  {
-  "InstFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/teste.vhd",
-  "InstLine" : 5,
-  "InstName" : "teste",
-  "ModuleFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/teste.vhd",
-  "ModuleLine" : 5,
-  "ModuleName" : "teste"
+  "InstFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/seguindodef.vhd",
+  "InstLine" : 4,
+  "InstName" : "seguindodef",
+  "ModuleFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/seguindodef.vhd",
+  "ModuleLine" : 4,
+  "ModuleName" : "seguindodef"
  }
 ]
