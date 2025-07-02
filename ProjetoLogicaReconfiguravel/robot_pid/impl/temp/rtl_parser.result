@@ -16,19 +16,19 @@
   "ModuleName" : "blink"
  },
  {
-  "InstFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/teste.vhd",
-  "InstLine" : 5,
-  "InstName" : "teste",
-  "ModuleFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/teste.vhd",
-  "ModuleLine" : 5,
-  "ModuleName" : "teste"
- },
- {
   "InstFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/robotCodigoDef.vhd",
   "InstLine" : 4,
   "InstName" : "seguidor_linha_simples",
   "ModuleFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/robotCodigoDef.vhd",
   "ModuleLine" : 4,
   "ModuleName" : "seguidor_linha_simples"
+ },
+ {
+  "InstFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/teste.vhd",
+  "InstLine" : 6,
+  "InstName" : "teste_motores_frente",
+  "ModuleFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/teste.vhd",
+  "ModuleLine" : 6,
+  "ModuleName" : "teste_motores_frente"
  }
 ]

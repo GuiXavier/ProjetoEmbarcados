@@ -2,18 +2,14 @@ Reading netlist file: "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLo
 Parsing netlist file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\gwsynthesis\robot_pid.vg" completed
 Processing netlist completed
 Reading constraint file: "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst"
-Physical Constraint parsed completed
-Running placement......
-ERROR  (PR2028) : The constrained location is useless in current package
-ERROR  (PR2017) : 'motor_r_in2' cannot be placed according to constraint, for the location is a dedicated pin (MSPI)
-ERROR  (PR2028) : The constrained location is useless in current package
-ERROR  (PR2017) : 'motor_r_in1' cannot be placed according to constraint, for the location is a dedicated pin (MSPI)
-ERROR  (PR2028) : The constrained location is useless in current package
-ERROR  (PR2017) : 'sensores_linha[4]' cannot be placed according to constraint, for the location is a dedicated pin (MSPI)
-ERROR  (PR2028) : The constrained location is useless in current package
-ERROR  (PR2017) : 'sensores_linha[0]' cannot be placed according to constraint, for the location is a dedicated pin (SSPI)
-Generate file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\pnr\robot_pid.pin.html" completed
-Generate file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\pnr\robot_pid.rpt.html" completed
-Generate file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\pnr\robot_pid.rpt.txt" completed
-Mon Jun 30 18:35:38 2025
-
+ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":19 | Can't find object named 'sensores_linha[4]'
+ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":20 | Can't find object named 'sensores_linha[4]'
+ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":21 | Can't find object named 'sensores_linha[3]'
+ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":22 | Can't find object named 'sensores_linha[3]'
+ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":23 | Can't find object named 'sensores_linha[2]'
+ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":24 | Can't find object named 'sensores_linha[2]'
+ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":25 | Can't find object named 'sensores_linha[1]'
+ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":26 | Can't find object named 'sensores_linha[1]'
+ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":27 | Can't find object named 'sensores_linha[0]'
+ERROR  (CT1135) : "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robot_pid.cst":28 | Can't find object named 'sensores_linha[0]'
+Physical Constraint parsed completed with errors
