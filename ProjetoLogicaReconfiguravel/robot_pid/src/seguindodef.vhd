@@ -6,17 +6,17 @@ entity seguidordef is
     port (
         -- Entradas principais
         clk            : in  std_logic;
-
         reset          : in  std_logic;
-        
+       
         -- Entrada dos 3 sensores de linha (S1, S2, S3)
         sensores_linha : in  std_logic_vector(2 downto 0);
 
         -- Saídas de DIREÇÃO e VELOCIDADE para a Ponte H
-        motor_r_in1    : out std_logic;
-        motor_r_in2    : out std_logic;
         motor_l_in1    : out std_logic;
-        motor_l_in2    : out std_logic
+        motor_l_in2    : out std_logic;
+        motor_r_in3    : out std_logic;
+        motor_r_in4    : out std_logic
+        
     );
 end entity;
 
@@ -87,9 +87,9 @@ begin
     end process;
     
     -- Lógica final que aplica o PWM nos pinos de direção corretos
-    motor_l_in1 <= pwm_signal_l when l_frente = '1' else '0';
-    motor_l_in2 <= pwm_signal_l when l_re     = '1' else '0';
-    motor_r_in1 <= pwm_signal_r when r_frente = '1' else '0';
-    motor_r_in2 <= pwm_signal_r when r_re     = '1' else '0';
+    motor_l_in1 <= pwm_signal_l when l_re = '1' else '0';
+    motor_l_in2 <= pwm_signal_l when l_frente = '1' else '0';
+    motor_r_in3 <= pwm_signal_r when r_re = '1' else '0';
+    motor_r_in4 <= pwm_signal_r when r_frente = '1' else '0';
 
 end architecture;

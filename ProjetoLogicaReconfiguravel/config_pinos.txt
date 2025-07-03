@@ -11,10 +11,11 @@ IN2 ----> do motor da esquerda vai pra frente (sentido sensor)
 IN3 ----> do motor da direita vai pra trás (sentido roda boba)	 
 IN4 ----> do motor da direita vai pra frente (sentido sensor)
 
-motor_r_1n2		----> Pino IOR6E (34)
-motor_r_1n1		----> Pino IOR6C (29)
-motor_l_1n1		----> Pino IOR6J (19)
-motor_l_1n2		----> Pino IOR10A (20)
+
+motor_l_1n1		----> Pino IOR6J (34)
+motor_l_1n2		----> Pino IOR10A (29)
+motor_r_1n3		----> Pino IOR6E (19)
+motor_r_1n4		----> Pino IOR6C (20)
 
 -- esse deu certo
 sensores_linhas[0]                 ----> Pino LVCMOS18 (11)

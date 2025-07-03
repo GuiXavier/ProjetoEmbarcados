@@ -79,7 +79,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Wed Jul  2 14:37:37 2025
+<td>Thu Jul  3 00:26:04 2025
 </td>
 </tr>
 <tr>
@@ -93,24 +93,24 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <tr>
 <td class="label">Place & Route Process</td>
 <td>Running placement:
-   Placement Phase 0: CPU time = 0h 0m 0.035s, Elapsed time = 0h 0m 0.034s
-   Placement Phase 1: CPU time = 0h 0m 0.033s, Elapsed time = 0h 0m 0.034s
-   Placement Phase 2: CPU time = 0h 0m 0.003s, Elapsed time = 0h 0m 0.002s
-   Placement Phase 3: CPU time = 0h 0m 0.901s, Elapsed time = 0h 0m 0.901s
-   Total Placement: CPU time = 0h 0m 0.972s, Elapsed time = 0h 0m 0.971s
+   Placement Phase 0: CPU time = 0h 0m 0.01s, Elapsed time = 0h 0m 0.01s
+   Placement Phase 1: CPU time = 0h 0m 0.017s, Elapsed time = 0h 0m 0.018s
+   Placement Phase 2: CPU time = 0h 0m 0.002s, Elapsed time = 0h 0m 0.001s
+   Placement Phase 3: CPU time = 0h 0m 0.841s, Elapsed time = 0h 0m 0.842s
+   Total Placement: CPU time = 0h 0m 0.87s, Elapsed time = 0h 0m 0.871s
 Running routing:
    Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-   Routing Phase 1: CPU time = 0h 0m 0.024s, Elapsed time = 0h 0m 0.024s
-   Routing Phase 2: CPU time = 0h 0m 0.023s, Elapsed time = 0h 0m 0.023s
+   Routing Phase 1: CPU time = 0h 0m 0.022s, Elapsed time = 0h 0m 0.022s
+   Routing Phase 2: CPU time = 0h 0m 0.022s, Elapsed time = 0h 0m 0.022s
    Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
-   Total Routing: CPU time = 0h 0m 0.047s, Elapsed time = 0h 0m 0.047s
+   Total Routing: CPU time = 0h 0m 0.044s, Elapsed time = 0h 0m 0.044s
 Generate output files:
-   CPU time = 0h 0m 0.208s, Elapsed time = 0h 0m 0.208s
+   CPU time = 0h 0m 0.183s, Elapsed time = 0h 0m 0.183s
 </td>
 </tr>
 <tr>
 <td class="label">Total Time and Memory Usage</td>
-<td>CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s, Peak memory usage = 190MB</td>
+<td>CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s, Peak memory usage = 212MB</td>
 </tr>
 </table>
 <br/>
@@ -301,10 +301,10 @@ Generate output files:
 <tr>
 <td class="label">sensores_linha[0]</td>
 <td>-</td>
-<td>17/1</td>
+<td>18/1</td>
 <td>Y</td>
 <td>in</td>
-<td>IOR6[G]</td>
+<td>IOR6[H]</td>
 <td>-</td>
 <td>LVCMOS18</td>
 <td>NA</td>
@@ -317,10 +317,10 @@ Generate output files:
 <tr>
 <td class="label">sensores_linha[1]</td>
 <td>-</td>
-<td>18/1</td>
+<td>17/1</td>
 <td>Y</td>
 <td>in</td>
-<td>IOR6[H]</td>
+<td>IOR6[G]</td>
 <td>-</td>
 <td>LVCMOS18</td>
 <td>NA</td>
@@ -347,23 +347,7 @@ Generate output files:
 <td>1.8</td>
 </tr>
 <tr>
-<td class="label">motor_r_in1</td>
-<td>-</td>
-<td>29/1</td>
-<td>Y</td>
-<td>out</td>
-<td>IOR6[E]</td>
-<td>FASTRD_N/D3</td>
-<td>LVCMOS18</td>
-<td>8</td>
-<td>UP</td>
-<td>NA</td>
-<td>NA</td>
-<td>OFF</td>
-<td>1.8</td>
-</tr>
-<tr>
-<td class="label">motor_r_in2</td>
+<td class="label">motor_l_in1</td>
 <td>-</td>
 <td>34/1</td>
 <td>Y</td>
@@ -379,7 +363,23 @@ Generate output files:
 <td>1.8</td>
 </tr>
 <tr>
-<td class="label">motor_l_in1</td>
+<td class="label">motor_l_in2</td>
+<td>-</td>
+<td>29/1</td>
+<td>Y</td>
+<td>out</td>
+<td>IOR6[E]</td>
+<td>FASTRD_N/D3</td>
+<td>LVCMOS18</td>
+<td>8</td>
+<td>UP</td>
+<td>NA</td>
+<td>NA</td>
+<td>OFF</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">motor_r_in3</td>
 <td>-</td>
 <td>19/1</td>
 <td>Y</td>
@@ -395,7 +395,7 @@ Generate output files:
 <td>1.8</td>
 </tr>
 <tr>
-<td class="label">motor_l_in2</td>
+<td class="label">motor_r_in4</td>
 <td>-</td>
 <td>20/1</td>
 <td>Y</td>
@@ -724,7 +724,7 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">34/1</td>
-<td>motor_r_in2</td>
+<td>motor_l_in1</td>
 <td>out</td>
 <td>IOR3[B]</td>
 <td>-</td>
@@ -822,7 +822,7 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">29/1</td>
-<td>motor_r_in1</td>
+<td>motor_l_in2</td>
 <td>out</td>
 <td>IOR6[E]</td>
 <td>FASTRD_N/D3</td>
@@ -850,7 +850,7 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">17/1</td>
-<td>sensores_linha[0]</td>
+<td>sensores_linha[1]</td>
 <td>in</td>
 <td>IOR6[G]</td>
 <td>-</td>
@@ -864,7 +864,7 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">18/1</td>
-<td>sensores_linha[1]</td>
+<td>sensores_linha[0]</td>
 <td>in</td>
 <td>IOR6[H]</td>
 <td>-</td>
@@ -892,7 +892,7 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">19/1</td>
-<td>motor_l_in1</td>
+<td>motor_r_in3</td>
 <td>out</td>
 <td>IOR6[J]</td>
 <td>DOUT/WE_N</td>
@@ -976,7 +976,7 @@ Generate output files:
 </tr>
 <tr>
 <td class="label">20/1</td>
-<td>motor_l_in2</td>
+<td>motor_r_in4</td>
 <td>out</td>
 <td>IOR10[A]</td>
 <td>-</td>
