@@ -33,7 +33,7 @@
   "SubInsts" : [
    {
     "InstFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/seguindodef.vhd",
-    "InstLine" : 52,
+    "InstLine" : 50,
     "InstName" : "pwm_left",
     "ModuleFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/pwm_generator.vhd",
     "ModuleLine" : 6,
@@ -41,7 +41,7 @@
    },
    {
     "InstFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/seguindodef.vhd",
-    "InstLine" : 53,
+    "InstLine" : 51,
     "InstName" : "pwm_right",
     "ModuleFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/pwm_generator.vhd",
     "ModuleLine" : 6,

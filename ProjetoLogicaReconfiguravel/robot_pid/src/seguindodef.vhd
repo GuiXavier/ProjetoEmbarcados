@@ -20,8 +20,6 @@ entity seguidordef is
     );
 end entity;
 
-
-
 architecture eriteeli of seguidordef is
     -- === CONSTANTES DE VELOCIDADE (AJUSTE AQUI!) ===
     constant VEL_MAXIMA : unsigned(7 downto 0) := to_unsigned(220, 8);

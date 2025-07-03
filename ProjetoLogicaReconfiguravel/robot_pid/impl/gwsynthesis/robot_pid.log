@@ -14,7 +14,7 @@ Analyzing entity 'seguidor_linha_sincrono'("C:\Users\Yan\Documents\GitHub\Projet
 Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd":27)
 Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd'
 Analyzing entity 'seguidordef'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":5)
-Analyzing architecture 'eriteeli'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":25)
+Analyzing architecture 'eriteeli'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":23)
 Processing 'seguidordef(eriteeli)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":5)
 Processing 'pwm_generator(rtl)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\pwm_generator.vhd":6)
 NOTE  (EX0101) : Current top module is "seguidordef"
