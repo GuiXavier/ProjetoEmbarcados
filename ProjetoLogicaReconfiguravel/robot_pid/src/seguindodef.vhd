@@ -5,17 +5,18 @@ use ieee.numeric_std.all;
 entity seguidordef is
     port (
         -- Entradas principais
-        clk            : in  std_logic; 
+        clk            : in  std_logic;
         reset          : in  std_logic;
-        
+       
         -- Entrada dos 3 sensores de linha (S1, S2, S3)
         sensores_linha : in  std_logic_vector(2 downto 0);
 
         -- Saídas de DIREÇÃO e VELOCIDADE para a Ponte H
-        motor_r_in1    : out std_logic;
-        motor_r_in2    : out std_logic;
         motor_l_in1    : out std_logic;
-        motor_l_in2    : out std_logic
+        motor_l_in2    : out std_logic;
+        motor_r_in3    : out std_logic;
+        motor_r_in4    : out std_logic
+        
     );
 end entity;
 
@@ -46,8 +47,11 @@ architecture eriteeli of seguidordef is
 
 begin
     -- Instanciando os geradores de PWM
-    pwm_left: pwm_generator port map (clk, reset, duty_cycle_l, pwm_signal_l);
-    pwm_right: pwm_generator port map (clk, reset, duty_cycle_r, pwm_signal_r);
+     pwm_left: pwm_generator port map (clk, '0', VEL_MAXIMA, motor_r_in1);
+     pwm_right: pwm_generator port map (clk, '0', VEL_CURVA, motor_r_in2);
+
+--    pwm_left: pwm_generator port map (clk, '0', x"80", motor_r_in1);
+--    pwm_right: pwm_generator port map (clk, '0', x"80", motor_r_in2);
 
     -- Processo que define as intenções de velocidade e direção
     process(clk, reset)
@@ -56,10 +60,10 @@ begin
             duty_cycle_l <= VEL_PARADO; duty_cycle_r <= VEL_PARADO;
             l_frente <= '0'; l_re <= '0'; r_frente <= '0'; r_re <= '0';
         elsif rising_edge(clk) then
-            -- Lógica para 3 sensores (Esquerda, Centro, Direita)
+--             Lógica para 3 sensores (Esquerda, Centro, Direita)
             case sensores_linha is
                 -- Linha no centro -> Frente
-                when "010" | "111" =>
+                    when "010" | "111" =>
                     l_frente <= '1'; l_re <= '0'; r_frente <= '1'; r_re <= '0';
                     duty_cycle_l <= VEL_MAXIMA; duty_cycle_r <= VEL_MAXIMA;
 
@@ -84,9 +88,16 @@ begin
     end process;
     
     -- Lógica final que aplica o PWM nos pinos de direção corretos
-    motor_l_in1 <= pwm_signal_l when l_frente = '1' else '0';
-    motor_l_in2 <= pwm_signal_l when l_re     = '1' else '0';
-    motor_r_in1 <= pwm_signal_r when r_frente = '1' else '0';
-    motor_r_in2 <= pwm_signal_r when r_re     = '1' else '0';
+<<<<<<< HEAD
+--    motor_l_in1 <= pwm_signal_l when l_frente = '1' else '0';
+--    motor_l_in2 <= pwm_signal_l when l_re     = '1' else '0';
+--    motor_r_in1 <= pwm_signal_r when r_frente = '1' else '0';
+--    motor_r_in2 <= pwm_signal_r when r_re     = '1' else '0';
+=======
+    motor_l_in1 <= pwm_signal_l when l_re = '1' else '0';
+    motor_l_in2 <= pwm_signal_l when l_frente = '1' else '0';
+    motor_r_in3 <= pwm_signal_r when r_re = '1' else '0';
+    motor_r_in4 <= pwm_signal_r when r_frente = '1' else '0';
+>>>>>>> 8756789af6633f131d26234d7850bae084e67a34
 
 end architecture;

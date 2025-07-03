@@ -1,8 +1,8 @@
 GowinSynthesis start
 Running parser ...
 Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd'
-Analyzing entity 'seguidor_linha'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":5)
-Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":29)
+Analyzing entity 'robot'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":6)
+Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\robot.vhd":27)
 Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\blink.vhd'
 Analyzing entity 'blink'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\blink.vhd":4)
 Analyzing architecture 'main'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\blink.vhd":14)
@@ -14,11 +14,15 @@ Analyzing entity 'seguidor_linha_sincrono'("C:\Users\Yan\Documents\GitHub\Projet
 Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd":27)
 Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd'
 Analyzing entity 'seguidordef'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":5)
-Analyzing architecture 'eriteeli'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":22)
+Analyzing architecture 'eriteeli'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":23)
 Processing 'seguidordef(eriteeli)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":5)
 Processing 'pwm_generator(rtl)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\pwm_generator.vhd":6)
 NOTE  (EX0101) : Current top module is "seguidordef"
+WARN  (EX0211) : The output port "motor_l_in1" of module "seguidordef" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":17)
+WARN  (EX0211) : The output port "motor_l_in2" of module "seguidordef" has no driver, assigning undriven bits to Z, simulation mismatch possible("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":18)
 [5%] Running netlist conversion ...
+WARN  (CV0016) : Input reset is unused("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":9)
+WARN  (CV0016) : Input sensores_linha is unused("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":12)
 Running device independent optimization ...
 WARN  (DI0019) : Merging user defined instance "pwm_right/counter[7:0]" to instance "pwm_left/counter[7:0]", because they are equivalent. If you want to keep the instance, please apply property constraint syn_preserve = 1 on it("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\pwm_generator.vhd":26)
 [10%] Optimizing Phase 0 completed

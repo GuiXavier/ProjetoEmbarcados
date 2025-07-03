@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="seguidordef" Register="5" Lut="12" T_Register="13(5)" T_Alu="11(0)" T_Lut="13(12)">
- <SubModule name="pwm_left" Register="8" Alu="4" T_Register="8(8)" T_Alu="4(4)"/>
- <SubModule name="pwm_right" Alu="7" Lut="1" T_Alu="7(7)" T_Lut="1(1)"/>
+<Module name="seguidordef" T_Register="8(0)" T_Alu="7(0)" T_Lut="5(0)">
+ <SubModule name="pwm_left" Register="8" Lut="2" T_Register="8(8)" T_Lut="2(2)"/>
+ <SubModule name="pwm_right" Alu="7" Lut="3" T_Alu="7(7)" T_Lut="3(3)"/>
 </Module>
