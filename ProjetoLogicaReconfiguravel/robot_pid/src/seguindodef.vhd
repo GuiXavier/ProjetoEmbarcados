@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 -- Renomeei a entidade para seguir o padrão do projeto anterior
-entity seguidor_pwm_final is
+entity seguindodef is
     port (
         -- Entradas principais
         clk            : in  std_logic;
@@ -20,7 +20,7 @@ entity seguidor_pwm_final is
     );
 end entity;
 
-architecture rtl of seguidor_pwm_final is
+architecture rtl of seguindodef is
     -- === CONSTANTES DE VELOCIDADE (AJUSTE AQUI!) ===
     constant VEL_MAXIMA : unsigned(7 downto 0) := to_unsigned(220, 8);
     constant VEL_CURVA  : unsigned(7 downto 0) := to_unsigned(150, 8);
@@ -108,14 +108,22 @@ begin
                     duty_cycle_r <= VEL_PARADO;
             end case;
         end if;
+
+            
+         motor_l_in1 <= pwm_signal_l when l_frente = '1' else '0';
+         motor_l_in2 <= pwm_signal_l when l_re     = '1' else '0';
+         motor_r_in1 <= pwm_signal_r when r_frente = '1' else '0';
+         motor_r_in2 <= pwm_signal_r when r_re     = '1' else '0';
+
+ 
     end process;
     
     -- Lógica final (multiplexador) que aplica o PWM nos pinos de direção corretos.
     -- Agora esta é a ÚNICA parte do código que controla as saídas dos motores.
     -- Corrigido para o padrão IN1=Frente, IN2=Ré.
-    motor_l_in1 <= pwm_signal_l when l_frente = '1' else '0';
-    motor_l_in2 <= pwm_signal_l when l_re     = '1' else '0';
-    motor_r_in1 <= pwm_signal_r when r_frente = '1' else '0';
-    motor_r_in2 <= pwm_signal_r when r_re     = '1' else '0';
+
+    
+
+   
 
 end architecture;

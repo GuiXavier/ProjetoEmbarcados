@@ -13,28 +13,12 @@ Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogi
 Analyzing entity 'seguidor_linha_sincrono'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd":4)
 Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\robotCodigoDef.vhd":27)
 Analyzing VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd'
-Analyzing entity 'seguidor_pwm_final'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":6)
+Analyzing entity 'seguindodef'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":6)
 Analyzing architecture 'rtl'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":23)
-Processing 'seguidor_pwm_final(rtl)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":6)
-Processing 'pwm_generator(rtl)'("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\pwm_generator.vhd":6)
-NOTE  (EX0101) : Current top module is "seguidor_pwm_final"
-[5%] Running netlist conversion ...
-Running device independent optimization ...
-[10%] Optimizing Phase 0 completed
-[15%] Optimizing Phase 1 completed
-[25%] Optimizing Phase 2 completed
-Running inference ...
-[30%] Inferring Phase 0 completed
-[40%] Inferring Phase 1 completed
-[50%] Inferring Phase 2 completed
-[55%] Inferring Phase 3 completed
-Running technical mapping ...
-[60%] Tech-Mapping Phase 0 completed
-[65%] Tech-Mapping Phase 1 completed
-[75%] Tech-Mapping Phase 2 completed
-[80%] Tech-Mapping Phase 3 completed
-[90%] Tech-Mapping Phase 4 completed
-WARN  (NL0002) : The module "pwm_generator" instantiated to "pwm_right" is swept in optimizing("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":63)
-[95%] Generate netlist file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\gwsynthesis\robot_pid.vg" completed
-[100%] Generate report file "C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\impl\gwsynthesis\robot_pid_syn.rpt.html" completed
+ERROR (EX4424) : This construct is only supported in VHDL 1076-2008("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":113)
+ERROR (EX4424) : This construct is only supported in VHDL 1076-2008("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":114)
+ERROR (EX4424) : This construct is only supported in VHDL 1076-2008("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":115)
+ERROR (EX4424) : This construct is only supported in VHDL 1076-2008("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":116)
+ERROR (EX4716) : Unit 'rtl' is ignored due to previous errors("C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd":129)
+VHDL file 'C:\Users\Yan\Documents\GitHub\ProjetoEmbarcados\ProjetoLogicaReconfiguravel\robot_pid\src\seguindodef.vhd' is ignored due to errors
 GowinSynthesis finish
