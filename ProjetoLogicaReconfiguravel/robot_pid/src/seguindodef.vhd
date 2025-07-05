@@ -117,10 +117,10 @@ begin
     -- Agora esta é a ÚNICA parte do código que controla as saídas dos motores.
     -- Corrigido para o padrão IN1=Frente, IN2=Ré.
 
-         motor_l_in1 <= pwm_signal_l when l_frente = '1' else '0';
-         motor_l_in2 <= pwm_signal_l when l_re     = '1' else '0';
-         motor_r_in1 <= pwm_signal_r when r_frente = '1' else '0';
-         motor_r_in2 <= pwm_signal_r when r_re     = '1' else '0';
+         motor_l_in1 <= pwm_signal_l when l_re = '1' else '0';
+         motor_l_in2 <= pwm_signal_l when l_frente = '1' else '0';
+         motor_r_in1 <= pwm_signal_r when r_re = '1' else '0';
+         motor_r_in2 <= pwm_signal_r when r_frente = '1' else '0';
  
 
 
