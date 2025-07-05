@@ -4,7 +4,7 @@
 //Tool Version: V1.9.11.01 Education (64-bit)
 //Part Number: GW1NZ-LV1QN48C6/I5
 //Device: GW1NZ-1
-//Created Time: Fri 07 04 02:18:24 2025
+//Created Time: Fri 07 04 22:05:43 2025
 
 IO_LOC "motor_l_in2" 29;
 IO_PORT "motor_l_in2" IO_TYPE=LVCMOS18 PULL_MODE=UP DRIVE=8 BANK_VCCIO=1.8;

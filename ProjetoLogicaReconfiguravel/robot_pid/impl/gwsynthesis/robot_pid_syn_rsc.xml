@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="seguidor_pwm_final" Register="1" Lut="2" T_Register="9(1)" T_Alu="7(0)" T_Lut="3(2)">
+<Module name="seguindodef" Register="1" Lut="2" T_Register="9(1)" T_Alu="7(0)" T_Lut="3(2)">
  <SubModule name="pwm_left" Register="8" Alu="7" Lut="1" T_Register="8(8)" T_Alu="7(7)" T_Lut="1(1)"/>
 </Module>

@@ -26,10 +26,10 @@
  {
   "InstFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/seguindodef.vhd",
   "InstLine" : 6,
-  "InstName" : "seguidor_pwm_final",
+  "InstName" : "seguindodef",
   "ModuleFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/seguindodef.vhd",
   "ModuleLine" : 6,
-  "ModuleName" : "seguidor_pwm_final",
+  "ModuleName" : "seguindodef",
   "SubInsts" : [
    {
     "InstFile" : "C:/Users/Yan/Documents/GitHub/ProjetoEmbarcados/ProjetoLogicaReconfiguravel/robot_pid/src/seguindodef.vhd",
