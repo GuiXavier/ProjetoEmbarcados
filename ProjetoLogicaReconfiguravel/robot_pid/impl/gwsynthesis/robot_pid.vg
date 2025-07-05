@@ -2,7 +2,11 @@
 //Written by GowinSynthesis
 //Tool Version "V1.9.11.01 Education (64-bit)"
 <<<<<<< HEAD
+<<<<<<< HEAD
 //Thu Jul  3 14:39:01 2025
+=======
+//Thu Jul  3 12:27:05 2025
+>>>>>>> 8756789af6633f131d26234d7850bae084e67a34
 =======
 //Thu Jul  3 12:27:05 2025
 >>>>>>> 8756789af6633f131d26234d7850bae084e67a34
@@ -24,17 +28,23 @@
 `pragma protect key_keyowner="GOWIN",key_keyname="GWK2023-09",key_method="rsa"
 `pragma protect key_block
 <<<<<<< HEAD
+<<<<<<< HEAD
 EFNDIIBG2LIaAGOX9H+Fe31oSWnll0HmgDnUMyd7CXOTPxp1boqc76V9YcVrXtlBuVZpXUOrDyIS
 dAoV0iYwQVaSDRtMaLhsVsvpmNSzP7jkzg+/J7dpaE48cgEJst1CNRFP1yenGNadmfCaKEQi5zAc
 i+eGGSaVXcy12cxLZzE6tkY90bJuTAW8TEDypBDqMwFqR6yV+Cl2JWFheFtneuqFRBxRycFJOTV6
 wteJDxKycFMpst/DrO7bBcDIKM0xgACAP841rVm7D2y1C3NEoOEHFxTdebj6ctMaPpjbfnC+eLL+
 bBueRbZIEBpQ3CQhs5d2FLnVLZY+4lAnyc5PNA==
 =======
+=======
+>>>>>>> 8756789af6633f131d26234d7850bae084e67a34
 YinUXGVWRb+HNnisI+VBGajKjaGdwVXf9SDyiw48FF4OHH9DDZmOqq8LLVMs3Hsqj2jDkRJR8aYY
 mPz2+UfHaJlSQ0bK11bNzKJdehcZNr/G6T3abrIWRQ0VU8rdMR87rk8Lo67rMOobEt33v5ytyQn+
 ULO23YfxN0g4NIGRQQ8Qcjeuy8VJe6kN6MLumBcUL1XTWxuLIF7rRORd91p8E0s3l3gdhrDytz1C
 PavZmPhgPyEvQWNPOcu7P2PjQZdlRKrZ1i02lUNDnmLyQbyNDGCpsn4w16zJEb7AtBTqgW7kw9IB
 0E3GR0M4Os6zH6cMy1MOidARe/rqH/cYQrlb9g==
+<<<<<<< HEAD
+>>>>>>> 8756789af6633f131d26234d7850bae084e67a34
+=======
 >>>>>>> 8756789af6633f131d26234d7850bae084e67a34
 
 `pragma protect encoding=(enctype="base64", line_length=76, bytes=4976)
@@ -42,6 +52,7 @@ PavZmPhgPyEvQWNPOcu7P2PjQZdlRKrZ1i02lUNDnmLyQbyNDGCpsn4w16zJEb7AtBTqgW7kw9IB
 `pragma protect data_keyname="default-ip-key"
 `pragma protect data_method="aes128-cfb"
 `pragma protect data_block
+<<<<<<< HEAD
 <<<<<<< HEAD
 mg27DLu41bIvataqkp9a9VTAw+B49TefsYIPX9Wvz4DlNkSutc4KlaAoLV/U2jbgaTUNfmSWjSPx
 8gH5ZPS+mBLsJvxo+hYBw/CfB4/YH8xACjy4gbU48vV/87dy9UWzAsh3s4DCx7BGaGeIlrCCbP1I
@@ -132,6 +143,8 @@ J4p25xPnsnpHFemHw1eimZWsJ1gakxiPUt9NiK85NEQv/+AdtgqvYaR0/IJoTFulNOovh1LyQFYp
 2hyRYYFS1ckUWMX1e2TB0zcgyfa5getHCif4505f+sR++zXNlEg1CwJ/8DTrzN/ZQXuCw8bD4Ang
 +ASUKJpaj+Wc+cJzhXi0P48=
 =======
+=======
+>>>>>>> 8756789af6633f131d26234d7850bae084e67a34
 oCwORcDeA4baMmCpBjIUrnnDaiavxv+ksAeW/9Ei7ydoLSSat5y87kHGkQDpv62gpk+q+YMVOTxe
 xMgJtWQSCy10ar0jgNMcRJvBwb2wgwQbqpxbYHAhl8gTSYe0W/uAAKE8ticcaeZt0mqMyMrXDOv0
 3xjUfYfz03fy2FX5v19FOB+HoTqJIVUGvm0zsUflurWyFlXA9IXsXr3kYBsvR2k4BD6Q0Bm9LDDs
@@ -283,5 +296,8 @@ ZMwim3/S14ouy9zBD/LL/7nhLaoKXagTTonR7u9+FxcLLUnqmXvXwVUKo+DMu7RLnI5rQoiFeZqO
 7VOtf5h7JXj8j3BBau6Mdbn80DRn2FB2UIyC0oSgEeqQT5p0rK74v0rvXcW3ygyaJI4dVOnKa78m
 mFeeIgBMYRu4xtNR5/zlKRLamx2DXNv5aujKz+xpzszz+T14alhO7O+gr04VFrggUzVJ0no4ehkV
 WKxFOXo0uO4bPQ==
+<<<<<<< HEAD
+>>>>>>> 8756789af6633f131d26234d7850bae084e67a34
+=======
 >>>>>>> 8756789af6633f131d26234d7850bae084e67a34
 `pragma protect end_protected

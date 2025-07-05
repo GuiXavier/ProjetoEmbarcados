@@ -12,7 +12,11 @@
   <Part Number>: GW1NZ-LV1QN48C6/I5
   <Device>: GW1NZ-1
 <<<<<<< HEAD
+<<<<<<< HEAD
   <Created Time>:Thu Jul  3 14:39:02 2025
+=======
+  <Created Time>:Thu Jul  3 12:27:06 2025
+>>>>>>> 8756789af6633f131d26234d7850bae084e67a34
 =======
   <Created Time>:Thu Jul  3 12:27:06 2025
 >>>>>>> 8756789af6633f131d26234d7850bae084e67a34
@@ -21,6 +25,7 @@
 2. PnR Details
 
   Running placement:
+<<<<<<< HEAD
 <<<<<<< HEAD
     Placement Phase 0: CPU time = 0h 0m 0.002s, Elapsed time = 0h 0m 0.001s
     Placement Phase 1: CPU time = 0h 0m 0.012s, Elapsed time = 0h 0m 0.013s
@@ -52,6 +57,23 @@
 <<<<<<< HEAD
  Total Time and Memory Usage: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s, Peak memory usage = 208MB
 =======
+ Total Time and Memory Usage: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s, Peak memory usage = 187MB
+>>>>>>> 8756789af6633f131d26234d7850bae084e67a34
+=======
+    Placement Phase 0: CPU time = 0h 0m 0.001s, Elapsed time = 0h 0m 0.002s
+    Placement Phase 1: CPU time = 0h 0m 0.015s, Elapsed time = 0h 0m 0.015s
+    Placement Phase 2: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
+    Placement Phase 3: CPU time = 0h 0m 0.832s, Elapsed time = 0h 0m 0.831s
+    Total Placement: CPU time = 0h 0m 0.848s, Elapsed time = 0h 0m 0.848s
+ Running routing:
+    Routing Phase 0: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
+    Routing Phase 1: CPU time = 0h 0m 0.012s, Elapsed time = 0h 0m 0.012s
+    Routing Phase 2: CPU time = 0h 0m 0.018s, Elapsed time = 0h 0m 0.018s
+    Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
+    Total Routing: CPU time = 0h 0m 0.03s, Elapsed time = 0h 0m 0.03s
+ Generate output files:
+    CPU time = 0h 0m 0.207s, Elapsed time = 0h 0m 0.207s
+
  Total Time and Memory Usage: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s, Peak memory usage = 187MB
 >>>>>>> 8756789af6633f131d26234d7850bae084e67a34
 
@@ -116,8 +138,14 @@ Port Name          | Diff Pair | Loc./Bank     | Constraint | Dir.  | Site     |
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 clk                | -         | 47/0          | Y          | in    | IOT10[A] | GCLKT_0         | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
 <<<<<<< HEAD
+<<<<<<< HEAD
 sensores_linha[0]  | -         | 17/1          | Y          | in    | IOR6[G]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
 sensores_linha[1]  | -         | 18/1          | Y          | in    | IOR6[H]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
+=======
+reset              | -         | 39/0          | N          | in    | IOT16[B] | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
+sensores_linha[0]  | -         | 18/1          | Y          | in    | IOR6[H]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
+sensores_linha[1]  | -         | 17/1          | Y          | in    | IOR6[G]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
+>>>>>>> 8756789af6633f131d26234d7850bae084e67a34
 =======
 reset              | -         | 39/0          | N          | in    | IOT16[B] | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       
 sensores_linha[0]  | -         | 18/1          | Y          | in    | IOR6[H]  | -               | LVCMOS18   | NA    | UP        | ON        | NONE       | NA         | 1.8       

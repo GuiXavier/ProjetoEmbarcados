@@ -89,15 +89,21 @@ begin
     
     -- Lógica final que aplica o PWM nos pinos de direção corretos
 <<<<<<< HEAD
+<<<<<<< HEAD
 --    motor_l_in1 <= pwm_signal_l when l_frente = '1' else '0';
 --    motor_l_in2 <= pwm_signal_l when l_re     = '1' else '0';
 --    motor_r_in1 <= pwm_signal_r when r_frente = '1' else '0';
 --    motor_r_in2 <= pwm_signal_r when r_re     = '1' else '0';
 =======
+=======
+>>>>>>> 8756789af6633f131d26234d7850bae084e67a34
     motor_l_in1 <= pwm_signal_l when l_re = '1' else '0';
     motor_l_in2 <= pwm_signal_l when l_frente = '1' else '0';
     motor_r_in3 <= pwm_signal_r when r_re = '1' else '0';
     motor_r_in4 <= pwm_signal_r when r_frente = '1' else '0';
+<<<<<<< HEAD
+>>>>>>> 8756789af6633f131d26234d7850bae084e67a34
+=======
 >>>>>>> 8756789af6633f131d26234d7850bae084e67a34
 
 end architecture;
